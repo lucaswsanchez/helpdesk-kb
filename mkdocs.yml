@@ -144,3 +144,11 @@ nav:
       - tickets/tck-010-onboarding-three-new-hires.md
   - Toolkit:
       - scripts/index.md
+      - scripts/Get-SystemDiagnostics.md
+      - scripts/Test-Connectivity.md
+      - scripts/Clear-TempFiles.md
+      - scripts/Export-InstalledSoftware.md
+      - scripts/Reset-PrintSpooler.md
+      - scripts/New-BulkADUser.md
+      - scripts/Get-InactiveAccount.md
+  - Tools & Ticketing: tools-ticketing.md

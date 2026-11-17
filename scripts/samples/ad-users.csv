@@ -1,0 +1,10 @@
+SamAccountName,Name,Department,Enabled,LastLogonDate,WhenCreated
+laura.gomez,Laura Gomez,Finance,True,2026-11-14,2021-03-01
+mike.brown,Mike Brown,Sales,True,2026-11-16,2020-07-15
+old.contractor,Old Contractor,Engineering,True,2026-05-02,2025-01-10
+peter.white,Peter White,Legal,True,2026-08-01,2019-11-20
+test.user,Test User,IT,True,,2025-06-01
+new.hire,New Hire,Marketing,True,,2026-11-10
+svc.backup,Backup Service,IT,True,2026-11-17,2018-02-01
+former.employee,Former Employee,Sales,False,2026-02-15,2022-04-04
+kiosk.lobby,Lobby Kiosk,Facilities,True,2025-12-20,2023-09-09

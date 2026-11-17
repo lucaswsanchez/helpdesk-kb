@@ -37,8 +37,14 @@ if ($Task -in 'Lint', 'All') {
     $findings = foreach ($file in $files) {
         $result = Invoke-ScriptAnalyzer -Path $file.FullName -Settings $settings
         if ($file.Name -like '*.Tests.ps1') {
-            # Pester BeforeAll/It scopes trigger false positives for this rule.
-            $result = $result | Where-Object RuleName -NE 'PSUseDeclaredVarsMoreThanAssignments'
+            # Test files: Pester BeforeAll/It scopes cause false positives for unused
+            # variables, and stubs must mirror external cmdlet signatures (e.g. New-ADUser).
+            $testExclusions = @(
+                'PSUseDeclaredVarsMoreThanAssignments', 'PSReviewUnusedParameter',
+                'PSAvoidUsingPlainTextForPassword', 'PSAvoidUsingUsernameAndPasswordParams',
+                'PSUseShouldProcessForStateChangingFunctions', 'PSAvoidGlobalVars'
+            )
+            $result = $result | Where-Object RuleName -NotIn $testExclusions
         }
         $result
     }

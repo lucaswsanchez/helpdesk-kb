@@ -88,7 +88,7 @@ Welcome to the **Acme Corp IT Service Desk** self-service portal. Search the kno
 | **Service desk email** `servicedesk@acme.example` | Non-urgent requests (P3/P4) | Mon–Fri 08:00–18:00 |
 | **Phone** ext. `4357` (H-E-L-P) | Urgent issues: you cannot work (P1/P2) | Mon–Fri 08:00–18:00, on-call for P1 |
 
-See [how we handle tickets](processes/index.md) to understand how fast we respond.
+See the [priority matrix and SLAs](processes/priority-matrix.md) to understand how fast we respond.
 
 !!! info "About this site"
     Acme Corp is a **fictional company**. This portal is a portfolio project that shows how an IT Service Desk documents its knowledge, processes and tooling. Ticket case studies are clearly marked **practice scenarios**.

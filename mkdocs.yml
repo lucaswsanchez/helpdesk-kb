@@ -125,6 +125,11 @@ nav:
       - kb/article-template.md
   - Processes:
       - processes/index.md
+      - processes/incident-vs-request.md
+      - processes/priority-matrix.md
+      - processes/escalation.md
+      - processes/response-templates.md
+      - processes/onboarding-offboarding.md
   - Ticket Cases:
       - tickets/index.md
   - Toolkit:

@@ -12,7 +12,7 @@ last_reviewed: 2026-11-17
 
 ## Summary
 
-The technical steps to provision a new employee's account, licenses, access and device so they are productive on day one. The process-level checklist lives in the Processes section (Onboarding & Offboarding).
+The technical steps to provision a new employee's account, licenses, access and device so they are productive on day one. The process-level checklist lives in [Onboarding & Offboarding](../processes/onboarding-offboarding.md).
 
 ## Applies to
 

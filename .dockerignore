@@ -1,0 +1,6 @@
+.git
+.venv
+site
+.claude
+__pycache__
+testResults.xml

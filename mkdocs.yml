@@ -152,3 +152,6 @@ nav:
       - scripts/New-BulkADUser.md
       - scripts/Get-InactiveAccount.md
   - Tools & Ticketing: tools-ticketing.md
+  - About:
+      - Technical decisions: decisions.md
+      - Home lab plan (planned): lab-plan.md

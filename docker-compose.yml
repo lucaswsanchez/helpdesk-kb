@@ -1,0 +1,8 @@
+services:
+  docs:
+    build: .
+    ports:
+      - "${DOCS_PORT:-8000}:8000"
+    volumes:
+      # Mount the repo so edits to Markdown reload in the browser.
+      - .:/docs

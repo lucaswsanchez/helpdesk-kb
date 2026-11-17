@@ -1,0 +1,149 @@
+/* Acme Corp IT Service Desk theme */
+:root,
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color: #0f4c81;
+  --md-primary-fg-color--light: #2f6ea6;
+  --md-primary-fg-color--dark: #0a365c;
+  --md-accent-fg-color: #0d7f75;
+  --md-accent-fg-color--transparent: rgba(13, 127, 117, 0.1);
+  --acme-card-bg: #ffffff;
+  --acme-card-border: #dbe3ec;
+  --acme-hero-from: #0f4c81;
+  --acme-hero-to: #0d6e66;
+}
+
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color: #12385c;
+  --md-primary-fg-color--light: #1d4e7c;
+  --md-primary-fg-color--dark: #0b2540;
+  --md-accent-fg-color: #2dd4bf;
+  --md-accent-fg-color--transparent: rgba(45, 212, 191, 0.12);
+  --md-hue: 215;
+  --acme-card-bg: #1b2433;
+  --acme-card-border: #2c3a4f;
+  --acme-hero-from: #12385c;
+  --acme-hero-to: #0f5f58;
+}
+
+[data-md-color-scheme="slate"] .md-typeset a {
+  color: #7cc4ff;
+}
+
+/* Hero */
+.acme-hero {
+  background: linear-gradient(135deg, var(--acme-hero-from), var(--acme-hero-to));
+  color: #fff;
+  border-radius: 14px;
+  padding: 2.2rem 2rem 1.8rem;
+  margin: 0 0 1.6rem;
+}
+.md-typeset .acme-hero h1 {
+  color: #fff;
+  margin: 0 0 0.4rem;
+  font-weight: 700;
+}
+.acme-hero p {
+  margin: 0.2rem 0 1rem;
+  font-size: 0.85rem;
+  max-width: 46rem;
+}
+.md-typeset .acme-hero .md-button {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.75);
+  margin: 0.2rem 0.4rem 0.2rem 0;
+}
+.md-typeset .acme-hero .md-button--primary {
+  background: #fff;
+  color: #0f4c81 !important;
+  border-color: #fff;
+}
+.md-typeset .acme-hero .md-button:hover,
+.md-typeset .acme-hero .md-button:focus {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff !important;
+}
+
+/* Status strip */
+.acme-status {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1.4rem;
+  font-size: 0.72rem;
+  padding: 0.7rem 1rem;
+  border: 1px solid var(--acme-card-border);
+  border-radius: 10px;
+  background: var(--acme-card-bg);
+  margin-bottom: 1.4rem;
+}
+.acme-dot {
+  display: inline-block;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  margin-right: 0.35rem;
+  background: #16a34a;
+  vertical-align: middle;
+}
+.acme-dot--warn {
+  background: #d97706;
+}
+
+/* Grid cards */
+.md-typeset .grid.cards > ul > li {
+  border-color: var(--acme-card-border);
+  background: var(--acme-card-bg);
+  border-radius: 12px;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.md-typeset .grid.cards > ul > li:hover {
+  border-color: var(--md-accent-fg-color);
+  box-shadow: 0 4px 14px rgba(15, 76, 129, 0.12);
+}
+
+/* KB meta badges */
+.kb-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: -0.4rem 0 1rem;
+}
+.kb-badge {
+  font-size: 0.66rem;
+  font-weight: 600;
+  padding: 0.12rem 0.55rem;
+  border-radius: 999px;
+  border: 1px solid var(--acme-card-border);
+  background: var(--md-accent-fg-color--transparent);
+}
+
+/* Practice scenario admonition */
+:root {
+  --md-admonition-icon--practice: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3 1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg>');
+}
+.md-typeset .admonition.practice,
+.md-typeset details.practice {
+  border-color: #7c3aed;
+}
+.md-typeset .practice > .admonition-title,
+.md-typeset .practice > summary {
+  background-color: rgba(124, 58, 237, 0.1);
+}
+.md-typeset .practice > .admonition-title::before,
+.md-typeset .practice > summary::before {
+  background-color: #7c3aed;
+  -webkit-mask-image: var(--md-admonition-icon--practice);
+  mask-image: var(--md-admonition-icon--practice);
+}
+
+/* Priority matrix cells */
+.md-typeset .p1 { background: rgba(220, 38, 38, 0.18); font-weight: 700; }
+.md-typeset .p2 { background: rgba(234, 88, 12, 0.18); font-weight: 600; }
+.md-typeset .p3 { background: rgba(202, 138, 4, 0.18); }
+.md-typeset .p4 { background: rgba(22, 163, 74, 0.15); }
+
+/* Keyboard focus visibility */
+.md-typeset a:focus-visible,
+.md-typeset .md-button:focus-visible {
+  outline: 2px solid var(--md-accent-fg-color);
+  outline-offset: 2px;
+}

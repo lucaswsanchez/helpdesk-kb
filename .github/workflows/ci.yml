@@ -1,0 +1,49 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  checks: write
+
+jobs:
+  powershell:
+    name: PowerShell lint & tests
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Pester and PSScriptAnalyzer
+        shell: pwsh
+        run: |
+          Set-PSRepository PSGallery -InstallationPolicy Trusted
+          Install-Module Pester -MinimumVersion 5.5 -Force -SkipPublisherCheck
+          Install-Module PSScriptAnalyzer -Force
+      - name: Lint (PSScriptAnalyzer)
+        shell: pwsh
+        run: ./tools/Invoke-CI.ps1 -Task Lint
+      - name: Test (Pester, PowerShell 7)
+        shell: pwsh
+        run: ./tools/Invoke-CI.ps1 -Task Test
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pester-results
+          path: testResults.xml
+          if-no-files-found: ignore
+
+  docs:
+    name: Docs build & KB validation
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Build site (strict)
+        run: mkdocs build --strict

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{#
+  Renders KB article metadata (from YAML front matter) as badges above the
+  article body, so the Markdown files stay clean for search and RAG ingestion.
+#}
+{% block content %}
+  {% if page.meta and page.meta.id and page.meta.level %}
+    <div class="kb-meta" aria-label="Article metadata">
+      <span class="kb-badge">{{ page.meta.id }}</span>
+      <span class="kb-badge" title="Support level">Level: {{ page.meta.level }}</span>
+      <span class="kb-badge">{{ page.meta.category }}</span>
+      {% if page.meta.estimated_time %}
+        <span class="kb-badge" title="Estimated resolution time">&#9201; {{ page.meta.estimated_time }}</span>
+      {% endif %}
+    </div>
+  {% endif %}
+  {{ super() }}
+{% endblock %}

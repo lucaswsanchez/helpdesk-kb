@@ -27,6 +27,19 @@ jobs:
       - name: Test (Pester, PowerShell 7)
         shell: pwsh
         run: ./tools/Invoke-CI.ps1 -Task Test
+      - name: Install Pester for Windows PowerShell 5.1
+        shell: powershell
+        run: |
+          [Net.ServicePointManager]::SecurityProtocol = 'Tls12'
+          Install-PackageProvider NuGet -MinimumVersion 2.8.5.201 -Force | Out-Null
+          Set-PSRepository PSGallery -InstallationPolicy Trusted
+          Install-Module Pester -MinimumVersion 5.5 -Force -SkipPublisherCheck
+      - name: Test (Pester, Windows PowerShell 5.1)
+        shell: powershell
+        run: ./tools/Invoke-CI.ps1 -Task Test
+      - name: Script docs are up to date
+        shell: powershell
+        run: ./tools/Build-ScriptDoc.ps1 -Check
       - name: Upload test results
         if: always()
         uses: actions/upload-artifact@v4

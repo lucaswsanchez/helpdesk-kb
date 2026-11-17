@@ -25,8 +25,18 @@
   --acme-hero-to: #0f5f58;
 }
 
-[data-md-color-scheme="slate"] .md-typeset a {
+[data-md-color-scheme="slate"] {
+  /* Lighter link/active colors so they stay readable on the dark background. */
+  --md-typeset-a-color: #7cc4ff;
+}
+[data-md-color-scheme="slate"] .md-nav__link--active,
+[data-md-color-scheme="slate"] .md-nav__item .md-nav__link--active {
   color: #7cc4ff;
+}
+
+/* The home page hero already links everywhere; hide the edit button there. */
+.md-content:has(.acme-hero) .md-content__button {
+  display: none;
 }
 
 /* Hero */

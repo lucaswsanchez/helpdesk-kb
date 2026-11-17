@@ -8,7 +8,7 @@ hide:
 
 # Knowledge Base
 
-**11 articles** (11 L1 self-service / first-line, 0 L2 technician). Use the search bar for error messages, or browse by category below.
+**21 articles** (17 L1 self-service / first-line, 4 L2 technician). Use the search bar for error messages, or browse by category below.
 
 !!! tip "Support levels"
     **L1** articles can be followed by the user or a first-line technician. **L2** articles need admin rights or a specialist team; the user should open a ticket.
@@ -20,6 +20,7 @@ hide:
 | KB-001 | [Reset a Forgotten Microsoft 365 Password](kb-001-reset-m365-password.md) | L1 | 10 min |
 | KB-002 | [Set Up or Reset Multi-Factor Authentication (MFA)](kb-002-mfa-setup-and-reset.md) | L1 | 15 min |
 | KB-003 | [Active Directory Account Locked Out](kb-003-ad-account-locked-out.md) | L1 | 10 min |
+| KB-004 | [Request or Grant Access to a Shared Folder](kb-004-shared-folder-permissions.md) | L2 | 20 min |
 
 ## Microsoft 365 {#microsoft-365}
 
@@ -28,6 +29,7 @@ hide:
 | KB-005 | [Outlook Is Not Syncing Email](kb-005-outlook-not-syncing.md) | L1 | 20 min |
 | KB-006 | [Microsoft Teams Has No Audio or Camera](kb-006-teams-audio-camera.md) | L1 | 15 min |
 | KB-007 | [OneDrive Is Not Syncing](kb-007-onedrive-not-syncing.md) | L1 | 20 min |
+| KB-008 | [Access a Shared Mailbox in Outlook](kb-008-shared-mailbox-access.md) | L1 | 15 min |
 
 ## Network {#network}
 
@@ -35,6 +37,7 @@ hide:
 |---|---|---|---|
 | KB-009 | [VPN Does Not Connect](kb-009-vpn-not-connecting.md) | L1 | 20 min |
 | KB-010 | [Wi-Fi Connected but No Internet (DNS and Connectivity)](kb-010-wifi-dns-troubleshooting.md) | L1 | 15 min |
+| KB-011 | [Mapped Network Drive Is Missing or Disconnected](kb-011-mapped-network-drive.md) | L1 | 15 min |
 
 ## Hardware & Printing {#hardware-printing}
 
@@ -42,12 +45,29 @@ hide:
 |---|---|---|---|
 | KB-012 | [Printer Shows Offline or Jobs Are Stuck in the Queue](kb-012-printer-offline.md) | L1 | 15 min |
 | KB-013 | [Computer Is Running Slow](kb-013-slow-computer.md) | L1 | 30 min |
+| KB-014 | [BitLocker Recovery Key Requested at Startup](kb-014-bitlocker-recovery.md) | L1 | 15 min |
+| KB-015 | [External Monitor or Docking Station Not Working](kb-015-monitor-docking-station.md) | L1 | 15 min |
+
+## Software {#software}
+
+| ID | Article | Level | Est. time |
+|---|---|---|---|
+| KB-016 | [Install Approved Software from Company Portal](kb-016-install-approved-software.md) | L1 | 10 min |
+| KB-017 | [Windows Update Fails to Install](kb-017-windows-update-failing.md) | L2 | 45 min |
 
 ## Security {#security}
 
 | ID | Article | Level | Est. time |
 |---|---|---|---|
 | KB-018 | [Report a Suspicious Email (Phishing)](kb-018-phishing-suspicious-email.md) | L1 | 10 min |
+| KB-019 | [Lost or Stolen Laptop or Phone](kb-019-lost-stolen-device.md) | L1 | 20 min |
+
+## Onboarding & Offboarding {#onboarding-offboarding}
+
+| ID | Article | Level | Est. time |
+|---|---|---|---|
+| KB-020 | [New Employee Onboarding (IT Setup)](kb-020-employee-onboarding.md) | L2 | 60 min |
+| KB-021 | [Employee Offboarding (IT Deprovisioning)](kb-021-employee-offboarding.md) | L2 | 45 min |
 
 ---
 

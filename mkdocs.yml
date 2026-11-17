@@ -104,14 +104,24 @@ nav:
       - kb/kb-001-reset-m365-password.md
       - kb/kb-002-mfa-setup-and-reset.md
       - kb/kb-003-ad-account-locked-out.md
+      - kb/kb-004-shared-folder-permissions.md
       - kb/kb-005-outlook-not-syncing.md
       - kb/kb-006-teams-audio-camera.md
       - kb/kb-007-onedrive-not-syncing.md
+      - kb/kb-008-shared-mailbox-access.md
       - kb/kb-009-vpn-not-connecting.md
       - kb/kb-010-wifi-dns-troubleshooting.md
+      - kb/kb-011-mapped-network-drive.md
       - kb/kb-012-printer-offline.md
       - kb/kb-013-slow-computer.md
+      - kb/kb-014-bitlocker-recovery.md
+      - kb/kb-015-monitor-docking-station.md
+      - kb/kb-016-install-approved-software.md
+      - kb/kb-017-windows-update-failing.md
       - kb/kb-018-phishing-suspicious-email.md
+      - kb/kb-019-lost-stolen-device.md
+      - kb/kb-020-employee-onboarding.md
+      - kb/kb-021-employee-offboarding.md
       - kb/article-template.md
   - Processes:
       - processes/index.md

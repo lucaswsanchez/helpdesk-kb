@@ -132,5 +132,15 @@ nav:
       - processes/onboarding-offboarding.md
   - Ticket Cases:
       - tickets/index.md
+      - tickets/tck-001-lockout-after-password-change.md
+      - tickets/tck-002-outlook-not-receiving.md
+      - tickets/tck-003-vpn-hotel-captive-portal.md
+      - tickets/tck-004-floor-no-internet-dhcp.md
+      - tickets/tck-005-print-queue-stuck.md
+      - tickets/tck-006-slow-laptop.md
+      - tickets/tck-007-phishing-credentials-entered.md
+      - tickets/tck-008-teams-no-audio-dock.md
+      - tickets/tck-009-bitlocker-after-bios-update.md
+      - tickets/tck-010-onboarding-three-new-hires.md
   - Toolkit:
       - scripts/index.md

@@ -105,7 +105,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.4rem;
-  margin: -0.4rem 0 1rem;
+  margin: 0 0 0.6rem;
 }
 .kb-badge {
   font-size: 0.66rem;

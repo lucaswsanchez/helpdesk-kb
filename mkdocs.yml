@@ -9,6 +9,7 @@ copyright: Acme Corp is a fictional company. Portfolio project by Lucas Sanchez 
 
 theme:
   name: material
+  custom_dir: overrides
   language: en
   logo: assets/logo.svg
   favicon: assets/favicon.svg
@@ -100,6 +101,18 @@ nav:
   - Home: index.md
   - Knowledge Base:
       - kb/index.md
+      - kb/kb-001-reset-m365-password.md
+      - kb/kb-002-mfa-setup-and-reset.md
+      - kb/kb-003-ad-account-locked-out.md
+      - kb/kb-005-outlook-not-syncing.md
+      - kb/kb-006-teams-audio-camera.md
+      - kb/kb-007-onedrive-not-syncing.md
+      - kb/kb-009-vpn-not-connecting.md
+      - kb/kb-010-wifi-dns-troubleshooting.md
+      - kb/kb-012-printer-offline.md
+      - kb/kb-013-slow-computer.md
+      - kb/kb-018-phishing-suspicious-email.md
+      - kb/article-template.md
   - Processes:
       - processes/index.md
   - Ticket Cases:

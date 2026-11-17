@@ -1,5 +1,11 @@
 #Requires -Modules Pester
 
+BeforeDiscovery {
+    # -Skip is evaluated during discovery, so elevation must be known here.
+    $identity = [Security.Principal.WindowsIdentity]::GetCurrent()
+    $isElevated = ([Security.Principal.WindowsPrincipal]$identity).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
+}
+
 BeforeAll {
     . (Join-Path $PSScriptRoot 'TestHelpers.ps1')
     $script:ScriptPath = Join-Path $PSScriptRoot '..\scripts\Reset-PrintSpooler.ps1'
@@ -47,12 +53,12 @@ Describe 'Reset-PrintSpooler.ps1' {
         { & $script:ScriptPath -SpoolPath $script:Spool -ServiceName 'NoSuchService' -WhatIf 6>$null } | Should -Throw "*was not found*"
     }
 
-    It 'requires an elevated session when not using -WhatIf' -Skip:$script:IsAdmin {
+    It 'requires an elevated session when not using -WhatIf' -Skip:$isElevated {
         { & $script:ScriptPath -SpoolPath $script:Spool -Confirm:$false 6>$null } | Should -Throw '*Run as administrator*'
         Should -Invoke Stop-Service -Times 0 -Exactly
     }
 
-    It 'stops the service, clears the queue and starts it again (elevated)' -Skip:(-not $script:IsAdmin) {
+    It 'stops the service, clears the queue and starts it again (elevated)' -Skip:(-not $isElevated) {
         $r = & $script:ScriptPath -SpoolPath $script:Spool -Confirm:$false 6>$null
         $r.Success | Should -BeTrue
         $r.FilesDeleted | Should -Be 2
@@ -62,7 +68,7 @@ Describe 'Reset-PrintSpooler.ps1' {
         @(Get-ChildItem $script:Spool).Count | Should -Be 0
     }
 
-    It 'starts the service again even if stopping times out (elevated)' -Skip:(-not $script:IsAdmin) {
+    It 'starts the service again even if stopping times out (elevated)' -Skip:(-not $isElevated) {
         Mock Stop-Service { }   # status stays Running, so the wait times out
         { & $script:ScriptPath -SpoolPath $script:Spool -TimeoutSeconds 5 -Confirm:$false 6>$null } | Should -Throw '*did not stop*'
         Should -Invoke Start-Service -Times 1 -Exactly

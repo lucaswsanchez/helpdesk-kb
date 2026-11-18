@@ -175,7 +175,17 @@
 }
 
 /* ---------- Panels: tables, admonitions, code, cards ---------- */
+/* Tables always span the content width so columns line up across a page. */
+.md-typeset .md-typeset__table {
+  display: block;
+  padding: 0;
+}
+.md-typeset .md-typeset__scrollwrap {
+  margin: 1em 0;
+}
 .md-typeset table:not([class]) {
+  display: table;
+  width: 100%;
   font-size: 0.68rem;
   border: 1px solid var(--ops-border);
   border-radius: 6px;
@@ -200,6 +210,44 @@
   background: var(--ops-blue-soft);
   box-shadow: none;
 }
+/* Inline code in cells moves as one block instead of splitting at hyphens. */
+.md-typeset td code {
+  display: inline-block;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  line-height: 1.45;
+}
+/* Identifiers in the first column (parameters, IDs) never break mid-word. */
+.md-typeset td:first-child code {
+  white-space: nowrap;
+  overflow-wrap: normal;
+}
+/* Rows of high-priority items get a priority-colored edge (not in the matrix,
+   where every row mixes priorities). */
+.md-typeset table:not([class]) tbody tr:has(.badge--p1) td:first-child {
+  box-shadow: inset 3px 0 0 var(--ops-red);
+}
+.md-typeset table:not([class]) tbody tr:has(.badge--p2) td:first-child {
+  box-shadow: inset 3px 0 0 var(--ops-amber);
+}
+.md-typeset .matrix-table table:not([class]) tbody tr td:first-child {
+  box-shadow: none;
+}
+/* Fixed column widths so tables with the same structure align (KB index, matrix). */
+.md-typeset .kb-table table:not([class]),
+.md-typeset .matrix-table table:not([class]) {
+  table-layout: fixed;
+}
+.md-typeset .kb-table th:nth-child(1) { width: 5.5rem; }
+.md-typeset .kb-table th:nth-child(3) { width: 5.5rem; }
+.md-typeset .kb-table th:nth-child(4) { width: 6rem; }
+.md-typeset .matrix-table th:first-child { width: 30%; }
+/* Toolkit table: script names never wrap at the hyphen. */
+.md-typeset .toolkit-table td:first-child,
+.md-typeset .toolkit-table :is(th, td):is(:nth-child(3), :nth-child(4)),
+.md-typeset .toolkit-table td:nth-child(5) a {
+  white-space: nowrap;
+}
 
 .md-typeset .admonition,
 .md-typeset details {
@@ -209,6 +257,43 @@
   background: var(--ops-panel);
   box-shadow: none;
   font-size: 0.7rem;
+}
+
+.md-typeset :is(.admonition, details):is(.note, .info, .abstract, .question) {
+  border-color: var(--ops-blue);
+}
+.md-typeset :is(.note, .info, .abstract, .question) > :is(.admonition-title, summary) {
+  background-color: var(--ops-blue-soft);
+}
+.md-typeset :is(.note, .info, .abstract, .question) > :is(.admonition-title, summary)::before {
+  background-color: var(--ops-blue);
+}
+.md-typeset :is(.admonition, details):is(.tip, .success) {
+  border-color: var(--ops-teal);
+}
+.md-typeset :is(.tip, .success) > :is(.admonition-title, summary) {
+  background-color: var(--ops-teal-soft);
+}
+.md-typeset :is(.tip, .success) > :is(.admonition-title, summary)::before {
+  background-color: var(--ops-teal);
+}
+.md-typeset :is(.admonition, details):is(.warning, .caution, .attention) {
+  border-color: var(--ops-amber);
+}
+.md-typeset :is(.warning, .caution, .attention) > :is(.admonition-title, summary) {
+  background-color: var(--ops-amber-soft);
+}
+.md-typeset :is(.warning, .caution, .attention) > :is(.admonition-title, summary)::before {
+  background-color: var(--ops-amber);
+}
+.md-typeset :is(.admonition, details):is(.danger, .error, .failure, .bug) {
+  border-color: var(--ops-red);
+}
+.md-typeset :is(.danger, .error, .failure, .bug) > :is(.admonition-title, summary) {
+  background-color: var(--ops-red-soft);
+}
+.md-typeset :is(.danger, .error, .failure, .bug) > :is(.admonition-title, summary)::before {
+  background-color: var(--ops-red);
 }
 
 /* Code blocks read as console output / technical records. */
@@ -221,23 +306,55 @@
   line-height: 1.55;
 }
 
-/* Grid cards become flat panels. */
-.md-typeset .grid.cards > ul > li,
-.md-typeset .grid > .card {
+/* Grid cards: flat panels in a centered flex grid (3 / 2 / 1 per row), so an
+   odd last row stays centered instead of leaving an orphan on the left. */
+.md-typeset .grid.cards {
+  margin: 0.6rem 0 1rem;
+}
+.md-typeset .grid.cards > ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+}
+.md-typeset .grid.cards > ul > li {
+  flex: 0 1 calc((100% - 1.2rem) / 3);
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
   background: var(--ops-panel);
   border: 1px solid var(--ops-border);
   border-radius: 8px;
   padding: 0.8rem 0.9rem;
   transition: border-color 0.15s ease;
 }
+.md-typeset .grid.cards > ul > li > p {
+  margin: 0 0 0.5rem;
+}
+.md-typeset .grid.cards > ul > li > p:first-child {
+  font-weight: 650;
+}
+.md-typeset .grid.cards > ul > li > p:last-child {
+  margin: auto 0 0;
+  padding-top: 0.2rem;
+}
 .md-typeset .grid.cards > ul > li:hover,
 .md-typeset .grid.cards > ul > li:focus-within {
   border-color: var(--ops-blue);
   box-shadow: none;
 }
-.md-typeset .grid.cards > ul > li > hr {
-  border-color: var(--ops-border);
-  margin: 0.5rem 0;
+@media screen and (max-width: 76.1875em) {
+  .md-typeset .grid.cards > ul > li {
+    flex-basis: calc((100% - 0.6rem) / 2);
+  }
+}
+@media screen and (max-width: 44.9375em) {
+  .md-typeset .grid.cards > ul > li {
+    flex-basis: 100%;
+  }
 }
 
 /* ---------- Badges (priority, state, level) ---------- */
@@ -286,7 +403,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.35rem;
-  margin: 0 0 0.5rem;
+  margin: -0.3rem 0 1.2rem;
 }
 .kb-badge {
   color: var(--ops-muted);
@@ -298,11 +415,10 @@
 
 /* ---------- Overview page ---------- */
 .ops-header {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 0.8rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 0.8rem 1.6rem;
   margin-bottom: 1rem;
 }
 .md-typeset .ops-header h1 {
@@ -324,8 +440,9 @@
 .ops-search-cta {
   display: inline-flex;
   align-items: center;
+  justify-content: space-between;
   gap: 0.6rem;
-  min-width: 15rem;
+  min-width: 17rem;
   padding: 0.45rem 0.7rem;
   font: inherit;
   font-size: 0.7rem;
@@ -343,12 +460,30 @@
 .ops-search-cta kbd {
   margin-left: auto;
 }
+@media screen and (max-width: 60em) {
+  .ops-header {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .ops-search-cta {
+    width: 100%;
+  }
+}
 
 .ops-stats {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 0.6rem;
-  margin: 0 0 1.2rem;
+  margin: 0 0 0.6rem;
+}
+@media screen and (max-width: 60em) {
+  .ops-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media screen and (max-width: 30em) {
+  .ops-stats {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
 .ops-stat {
   background: var(--ops-panel);
@@ -389,16 +524,31 @@ a.ops-stat:focus-visible {
 
 .ops-columns {
   display: grid;
-  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
-  gap: 1rem;
-  align-items: start;
+  grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+  gap: 0.6rem;
+  align-items: stretch;
+  margin-bottom: 0.6rem;
 }
 .ops-panel {
   background: var(--ops-panel);
   border: 1px solid var(--ops-border);
   border-radius: 8px;
-  padding: 0.2rem 0.9rem 0.6rem;
+  padding: 0.2rem 0.9rem 0.8rem;
   min-width: 0;
+}
+.md-typeset .ops-panel__link {
+  display: inline-block;
+  margin-top: 0.1rem;
+  font-size: 0.68rem;
+}
+.md-typeset .ops-section > h2 {
+  margin-top: 1.2rem;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ops-muted);
+  border: 0;
+  padding: 0;
 }
 .md-typeset .ops-panel h2 {
   margin-top: 0.6rem;
@@ -410,15 +560,9 @@ a.ops-stat:focus-visible {
   padding: 0;
 }
 .md-typeset .ops-panel .md-typeset__scrollwrap {
-  margin: 0;
-}
-.md-typeset .ops-panel .md-typeset__table {
-  display: block;
-  padding: 0;
+  margin: 0.4rem 0;
 }
 .md-typeset .ops-panel table:not([class]) {
-  display: table;
-  width: 100%;
   border: 0;
   background: transparent;
   margin: 0;

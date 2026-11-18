@@ -8,7 +8,7 @@ title: Clear-TempFiles
 
 Safely deletes old temporary files and reports how much space was freed.
 
-| | |
+| Property | Value |
 |---|---|
 | **Changes the system** | Yes |
 | **Supports `-WhatIf` / `-Confirm`** | Yes |

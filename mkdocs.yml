@@ -118,28 +118,28 @@ nav:
       - tickets/tck-010-onboarding-three-new-hires.md
   - Knowledge Base:
       - kb/index.md
-      - kb/kb-001-reset-m365-password.md
-      - kb/kb-002-mfa-setup-and-reset.md
-      - kb/kb-003-ad-account-locked-out.md
-      - kb/kb-004-shared-folder-permissions.md
-      - kb/kb-005-outlook-not-syncing.md
-      - kb/kb-006-teams-audio-camera.md
-      - kb/kb-007-onedrive-not-syncing.md
-      - kb/kb-008-shared-mailbox-access.md
-      - kb/kb-009-vpn-not-connecting.md
-      - kb/kb-010-wifi-dns-troubleshooting.md
-      - kb/kb-011-mapped-network-drive.md
-      - kb/kb-012-printer-offline.md
-      - kb/kb-013-slow-computer.md
-      - kb/kb-014-bitlocker-recovery.md
-      - kb/kb-015-monitor-docking-station.md
-      - kb/kb-016-install-approved-software.md
-      - kb/kb-017-windows-update-failing.md
-      - kb/kb-018-phishing-suspicious-email.md
-      - kb/kb-019-lost-stolen-device.md
-      - kb/kb-020-employee-onboarding.md
-      - kb/kb-021-employee-offboarding.md
-      - kb/article-template.md
+      - "KB-001: Reset a Forgotten Microsoft 365 Password": kb/kb-001-reset-m365-password.md
+      - "KB-002: Set Up or Reset Multi-Factor Authentication (MFA)": kb/kb-002-mfa-setup-and-reset.md
+      - "KB-003: Active Directory Account Locked Out": kb/kb-003-ad-account-locked-out.md
+      - "KB-004: Request or Grant Access to a Shared Folder": kb/kb-004-shared-folder-permissions.md
+      - "KB-005: Outlook Is Not Syncing Email": kb/kb-005-outlook-not-syncing.md
+      - "KB-006: Microsoft Teams Has No Audio or Camera": kb/kb-006-teams-audio-camera.md
+      - "KB-007: OneDrive Is Not Syncing": kb/kb-007-onedrive-not-syncing.md
+      - "KB-008: Access a Shared Mailbox in Outlook": kb/kb-008-shared-mailbox-access.md
+      - "KB-009: VPN Does Not Connect": kb/kb-009-vpn-not-connecting.md
+      - "KB-010: Wi-Fi Connected but No Internet (DNS and Connectivity)": kb/kb-010-wifi-dns-troubleshooting.md
+      - "KB-011: Mapped Network Drive Is Missing or Disconnected": kb/kb-011-mapped-network-drive.md
+      - "KB-012: Printer Shows Offline or Jobs Are Stuck in the Queue": kb/kb-012-printer-offline.md
+      - "KB-013: Computer Is Running Slow": kb/kb-013-slow-computer.md
+      - "KB-014: BitLocker Recovery Key Requested at Startup": kb/kb-014-bitlocker-recovery.md
+      - "KB-015: External Monitor or Docking Station Not Working": kb/kb-015-monitor-docking-station.md
+      - "KB-016: Install Approved Software from Company Portal": kb/kb-016-install-approved-software.md
+      - "KB-017: Windows Update Fails to Install": kb/kb-017-windows-update-failing.md
+      - "KB-018: Report a Suspicious Email (Phishing)": kb/kb-018-phishing-suspicious-email.md
+      - "KB-019: Lost or Stolen Laptop or Phone": kb/kb-019-lost-stolen-device.md
+      - "KB-020: New Employee Onboarding (IT Setup)": kb/kb-020-employee-onboarding.md
+      - "KB-021: Employee Offboarding (IT Deprovisioning)": kb/kb-021-employee-offboarding.md
+      - Article template: kb/article-template.md
   - Diagnostics:
       - scripts/index.md
       - scripts/Get-SystemDiagnostics.md

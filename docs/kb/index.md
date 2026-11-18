@@ -15,6 +15,8 @@ hide:
 
 ## Accounts & Identity {#accounts-identity}
 
+<div class="kb-table" markdown>
+
 | ID | Article | Level | Est. time |
 |---|---|---|---|
 | KB-001 | [Reset a Forgotten Microsoft 365 Password](kb-001-reset-m365-password.md) | <span class="badge badge--l1">L1</span> | 10 min |
@@ -22,7 +24,11 @@ hide:
 | KB-003 | [Active Directory Account Locked Out](kb-003-ad-account-locked-out.md) | <span class="badge badge--l1">L1</span> | 10 min |
 | KB-004 | [Request or Grant Access to a Shared Folder](kb-004-shared-folder-permissions.md) | <span class="badge badge--l2">L2</span> | 20 min |
 
+</div>
+
 ## Microsoft 365 {#microsoft-365}
+
+<div class="kb-table" markdown>
 
 | ID | Article | Level | Est. time |
 |---|---|---|---|
@@ -31,7 +37,11 @@ hide:
 | KB-007 | [OneDrive Is Not Syncing](kb-007-onedrive-not-syncing.md) | <span class="badge badge--l1">L1</span> | 20 min |
 | KB-008 | [Access a Shared Mailbox in Outlook](kb-008-shared-mailbox-access.md) | <span class="badge badge--l1">L1</span> | 15 min |
 
+</div>
+
 ## Network {#network}
+
+<div class="kb-table" markdown>
 
 | ID | Article | Level | Est. time |
 |---|---|---|---|
@@ -39,7 +49,11 @@ hide:
 | KB-010 | [Wi-Fi Connected but No Internet (DNS and Connectivity)](kb-010-wifi-dns-troubleshooting.md) | <span class="badge badge--l1">L1</span> | 15 min |
 | KB-011 | [Mapped Network Drive Is Missing or Disconnected](kb-011-mapped-network-drive.md) | <span class="badge badge--l1">L1</span> | 15 min |
 
+</div>
+
 ## Hardware & Printing {#hardware-printing}
+
+<div class="kb-table" markdown>
 
 | ID | Article | Level | Est. time |
 |---|---|---|---|
@@ -48,26 +62,40 @@ hide:
 | KB-014 | [BitLocker Recovery Key Requested at Startup](kb-014-bitlocker-recovery.md) | <span class="badge badge--l1">L1</span> | 15 min |
 | KB-015 | [External Monitor or Docking Station Not Working](kb-015-monitor-docking-station.md) | <span class="badge badge--l1">L1</span> | 15 min |
 
+</div>
+
 ## Software {#software}
+
+<div class="kb-table" markdown>
 
 | ID | Article | Level | Est. time |
 |---|---|---|---|
 | KB-016 | [Install Approved Software from Company Portal](kb-016-install-approved-software.md) | <span class="badge badge--l1">L1</span> | 10 min |
 | KB-017 | [Windows Update Fails to Install](kb-017-windows-update-failing.md) | <span class="badge badge--l2">L2</span> | 45 min |
 
+</div>
+
 ## Security {#security}
+
+<div class="kb-table" markdown>
 
 | ID | Article | Level | Est. time |
 |---|---|---|---|
 | KB-018 | [Report a Suspicious Email (Phishing)](kb-018-phishing-suspicious-email.md) | <span class="badge badge--l1">L1</span> | 10 min |
 | KB-019 | [Lost or Stolen Laptop or Phone](kb-019-lost-stolen-device.md) | <span class="badge badge--l1">L1</span> | 20 min |
 
+</div>
+
 ## Onboarding & Offboarding {#onboarding-offboarding}
+
+<div class="kb-table" markdown>
 
 | ID | Article | Level | Est. time |
 |---|---|---|---|
 | KB-020 | [New Employee Onboarding (IT Setup)](kb-020-employee-onboarding.md) | <span class="badge badge--l2">L2</span> | 60 min |
 | KB-021 | [Employee Offboarding (IT Deprovisioning)](kb-021-employee-offboarding.md) | <span class="badge badge--l2">L2</span> | 45 min |
+
+</div>
 
 ---
 

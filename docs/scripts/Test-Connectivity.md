@@ -8,7 +8,7 @@ title: Test-Connectivity
 
 Runs layered network connectivity checks: gateway, internet, DNS and TCP ports.
 
-| | |
+| Property | Value |
 |---|---|
 | **Changes the system** | No, read-only |
 | **Supports `-WhatIf` / `-Confirm`** | Not needed (read-only) |

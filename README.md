@@ -13,7 +13,14 @@
 
 &nbsp;&nbsp;&nbsp;[Knowledge Base](https://lucaswsanchez.github.io/helpdesk-kb/kb/) · [Priority matrix & SLAs](https://lucaswsanchez.github.io/helpdesk-kb/processes/priority-matrix/) · [Ticket cases](https://lucaswsanchez.github.io/helpdesk-kb/tickets/) · [PowerShell toolkit](https://lucaswsanchez.github.io/helpdesk-kb/scripts/) · [Project board](https://github.com/users/lucaswsanchez/projects/3)
 
-![Acme Corp IT Service Desk home page](docs/assets/screenshot-home.png)
+![Service Desk Overview: stat tiles computed from the repo, most used procedures, priority and SLA targets](docs/assets/screenshot-home.png)
+
+<details>
+<summary>Incident case with status badges and resolution timeline</summary>
+
+![Incident case TCK-004 with priority and status badges and a resolution timeline](docs/assets/screenshot-incident.png)
+
+</details>
 
 > Acme Corp is a **fictional company**. Ticket cases are clearly marked **practice scenarios**. No real user data is included.
 
@@ -33,7 +40,7 @@
 
 ## Features
 
-- **Self-service portal** (MkDocs Material): instant search, dark mode, tabs per section, service status strip, custom theme, logo and favicon.
+- **Operations-workspace UI** on MkDocs Material: dark-first [design system](https://lucaswsanchez.github.io/helpdesk-kb/design-system/) (#10151C / #19212B / #5B9EFF / #42C8B5 / #F2A65A, Inter + JetBrains Mono), consistent priority/state badges, **Ctrl+K command palette** over the real search index, an overview whose numbers are computed from the repo at build time, and an [infrastructure dependency map](https://lucaswsanchez.github.io/helpdesk-kb/infrastructure/). No simulated monitoring or fake telemetry.
 - **Knowledge base, 21 articles** in 7 categories, each with *Summary, Applies to, Symptoms, Cause, Resolution, Escalation criteria, Related articles, Last reviewed*, a support level (**L1/L2**) and an estimated resolution time shown as badges.
 - **ITIL 4 processes**: incident vs. service request, priority matrix and SLA targets, tiered escalation flow, onboarding/offboarding checklists, bilingual response templates.
 - **10 ticket case studies** (practice scenarios) showing classification, step-by-step diagnosis, escalation notes and user communication.
@@ -149,7 +156,7 @@ python tools/gen_kb_index.py --check
 mkdocs build --strict
 ```
 
-Current suite: **114 Pester tests** (run on both Windows PowerShell 5.1 and PowerShell 7; 2 of them need an elevated session and run on the CI runner) and **22 pytest tests**. PSScriptAnalyzer reports zero findings.
+Current suite: **114 Pester tests** (run on both Windows PowerShell 5.1 and PowerShell 7; 2 of them need an elevated session and run on the CI runner) and **25 pytest tests**. PSScriptAnalyzer reports zero findings.
 
 ## Project Management
 
@@ -175,6 +182,7 @@ Full ADRs: [Technical decisions](https://lucaswsanchez.github.io/helpdesk-kb/dec
 3. **Safe-by-default scripts.** Read-only diagnostics; `SupportsShouldProcess` for anything that changes state; automatic simulation mode for AD; passwords only as `SecureString`.
 4. **Testing without production.** Pester with `TestDrive`, a loopback TCP listener, a temporary registry key and stubbed AD cmdlets, run on PowerShell 5.1 *and* 7. Lesson learned: Pester evaluates `-Skip` during discovery, so environment checks must live in `BeforeDiscovery`.
 5. **Single source of truth for script docs.** Pages are generated from comment-based help and CI fails on drift.
+6. **Redesign without new dependencies.** The ops-workspace look, badges, timelines and the Ctrl+K palette (WAI-ARIA combobox) are plain CSS and ~250 lines of vanilla JS on top of Material; overview numbers come from a small MkDocs hook, so nothing is hard-coded or simulated.
 
 ## Author
 

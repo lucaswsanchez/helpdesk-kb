@@ -11,9 +11,23 @@ title: "TCK-004: Several Users on One Floor Have No Network"
 |---|---|
 | **Type** | Incident (parent ticket, 6 child tickets linked) |
 | **Category** | Network > Wi-Fi / DHCP |
-| **Priority** | **P2** — Impact: Medium (a floor, ~40 users) · Urgency: High (no workaround for laptops arriving now) |
+| **Priority** | <span class="badge badge--p2">P2</span> — Impact: Medium (a floor, ~40 users) · Urgency: High (no workaround for laptops arriving now) |
+| **Status** | <span class="badge badge--escalated">Escalated &rarr; Resolved</span> |
 | **Channel** | Phone + chat (multiple users within 15 minutes) |
 | **Related KB** | [KB-010 Wi-Fi Connected but No Internet](../kb/kb-010-wifi-dns-troubleshooting.md) |
+
+## Resolution timeline
+
+<div class="timeline" markdown>
+
+1. **Reported** Six contacts from the 3rd floor in 15 minutes: "No internet".
+2. **Triaged** Parent incident created, children linked, raised from P4 to <span class="badge badge--p2">P2</span>, team lead notified.
+3. **Diagnosed** APIPA addresses on late arrivals vs. valid leases on early ones: DHCP scope exhaustion suspected.
+4. **Escalated** Hand-off to L2 Network with ipconfig output and Test-Connectivity reports.
+5. **Resolved** L2 shortened leases and moved guest devices; users renewed and confirmed; floor notice sent.
+6. **Follow-up** Problem record: scope-utilization alert at 85%.
+
+</div>
 
 ## User reports
 

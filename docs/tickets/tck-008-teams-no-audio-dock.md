@@ -11,9 +11,21 @@ title: "TCK-008: No Audio in Teams After Docking"
 |---|---|
 | **Type** | Incident |
 | **Category** | Microsoft 365 > Teams |
-| **Priority** | **P3** — Impact: Low (one user) · Urgency: High (customer call in 10 minutes) |
+| **Priority** | <span class="badge badge--p3">P3</span> — Impact: Low (one user) · Urgency: High (customer call in 10 minutes) |
+| **Status** | <span class="badge badge--resolved">Resolved</span> |
 | **Channel** | Teams chat |
 | **Related KB** | [KB-006 Microsoft Teams Has No Audio or Camera](../kb/kb-006-teams-audio-camera.md), [KB-015 External Monitor or Docking Station](../kb/kb-015-monitor-docking-station.md) |
+
+## Resolution timeline
+
+<div class="timeline" markdown>
+
+1. **Reported** Teams chat: no audio, customer call in 10 minutes.
+2. **Triaged** Incident, Microsoft 365, <span class="badge badge--p3">P3</span>; mobile app offered as a fallback.
+3. **Diagnosed** Hot-desk dock switched Teams to the monitor speakers and the dock microphone.
+4. **Resolved** Headset selected in Teams and Windows; test call OK; user joined on time.
+
+</div>
 
 ## User report
 

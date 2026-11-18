@@ -74,7 +74,9 @@ def render_index(articles: list[tuple[Path, dict]]) -> str:
         lines += [f"## {category} {{#{anchor}}}", "", "| ID | Article | Level | Est. time |", "|---|---|---|---|"]
         for path, meta in rows:
             lines.append(
-                f"| {meta['id']} | [{meta['title']}]({path.name}) | {meta['level']} | {meta.get('estimated_time', '')} |"
+                f"| {meta['id']} | [{meta['title']}]({path.name}) | "
+                f'<span class="badge badge--{str(meta["level"]).lower()}">{meta["level"]}</span> | '
+                f"{meta.get('estimated_time', '')} |"
             )
         lines.append("")
     lines += [

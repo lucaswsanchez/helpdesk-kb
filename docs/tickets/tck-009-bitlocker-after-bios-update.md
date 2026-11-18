@@ -11,9 +11,22 @@ title: "TCK-009: BitLocker Recovery Screen After a BIOS Update"
 |---|---|
 | **Type** | Incident |
 | **Category** | Hardware & Printing > BitLocker |
-| **Priority** | **P3** — Impact: Low (one user) · Urgency: High (cannot use the laptop) |
+| **Priority** | <span class="badge badge--p3">P3</span> — Impact: Low (one user) · Urgency: High (cannot use the laptop) |
+| **Status** | <span class="badge badge--resolved">Resolved</span> |
 | **Channel** | Phone (user's personal mobile) |
 | **Related KB** | [KB-014 BitLocker Recovery Key Requested at Startup](../kb/kb-014-bitlocker-recovery.md) |
+
+## Resolution timeline
+
+<div class="timeline" markdown>
+
+1. **Reported** Phone call: BitLocker recovery screen after an overnight update.
+2. **Triaged** Incident, Hardware & Printing, <span class="badge badge--p3">P3</span>. Identity verified by call-back.
+3. **Diagnosed** Firmware update deployed without suspending BitLocker; Key ID matched in Intune.
+4. **Resolved** Key read by phone, device booted twice cleanly, recovery key rotated.
+5. **Follow-up** Trend of three similar tickets reported; problem record to suspend BitLocker during firmware updates.
+
+</div>
 
 ## User report
 

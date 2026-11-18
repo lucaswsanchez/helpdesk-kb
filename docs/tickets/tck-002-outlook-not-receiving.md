@@ -11,9 +11,21 @@ title: "TCK-002: Outlook Not Receiving New Email"
 |---|---|
 | **Type** | Incident |
 | **Category** | Microsoft 365 > Outlook |
-| **Priority** | **P4** — Impact: Low (one user) · Urgency: Medium (workaround: Outlook on the web) |
+| **Priority** | <span class="badge badge--p4">P4</span> — Impact: Low (one user) · Urgency: Medium (workaround: Outlook on the web) |
+| **Status** | <span class="badge badge--resolved">Resolved</span> |
 | **Channel** | Self-service portal |
 | **Related KB** | [KB-005 Outlook Is Not Syncing Email](../kb/kb-005-outlook-not-syncing.md) |
+
+## Resolution timeline
+
+<div class="timeline" markdown>
+
+1. **Reported** Portal ticket: no new email in Outlook since the previous afternoon.
+2. **Triaged** Incident, Microsoft 365, <span class="badge badge--p4">P4</span>: Outlook on the web works as a workaround.
+3. **Diagnosed** Server side ruled out via OWA; safe mode, quota and build fine; corrupted OST after a battery shutdown.
+4. **Resolved** OST rebuilt, test email received, user confirmed. Old OST deleted the next day.
+
+</div>
 
 ## User report
 

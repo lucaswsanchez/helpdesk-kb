@@ -1,94 +1,140 @@
 ---
-title: Home
+title: Overview
 hide:
   - navigation
   - toc
 ---
 
-<div class="acme-hero" markdown>
-
-# How can we help you today?
-
-Welcome to the **Acme Corp IT Service Desk** self-service portal. Search the knowledge base, follow step-by-step fixes for the most common issues, and learn how to reach us when you need a technician.
-
-[Browse the Knowledge Base](kb/index.md){ .md-button .md-button--primary }
-[How we handle tickets](processes/index.md){ .md-button }
-
+<div class="ops-header">
+  <div>
+    <p class="ops-eyebrow">Acme Corp &middot; IT Service Desk</p>
+    <h1>Service Desk Overview</h1>
+    <p>Knowledge base, incident procedures and technician toolkit in one workspace. Start typing what is happening, for example <em>"outlook not syncing"</em> or <em>KB-010</em>.</p>
+  </div>
+  <button type="button" class="ops-search-cta" data-cmdk-open aria-label="Open command palette">
+    Search articles, cases, scripts&hellip; <kbd>Ctrl K</kbd>
+  </button>
 </div>
 
-<div class="acme-status" role="status" aria-label="Service status (demo)">
-  <span><span class="acme-dot"></span>Microsoft 365: Operational</span>
-  <span><span class="acme-dot"></span>VPN: Operational</span>
-  <span><span class="acme-dot"></span>Wi-Fi (HQ): Operational</span>
-  <span><span class="acme-dot acme-dot--warn"></span>Printing (3rd floor): Planned maintenance</span>
+<div class="ops-stats" aria-label="Portal contents (computed from the repository at build time)">
+  <a class="ops-stat" href="kb/">
+    <span class="ops-stat__label">KB articles</span>
+    <span class="ops-stat__value">{{ stat:kb_total }}</span>
+    <span class="ops-stat__hint">{{ stat:kb_l1 }} L1 &middot; {{ stat:kb_l2 }} L2 &middot; {{ stat:kb_categories }} categories</span>
+  </a>
+  <a class="ops-stat" href="tickets/">
+    <span class="ops-stat__label">Incident case studies</span>
+    <span class="ops-stat__value">{{ stat:tickets_total }}</span>
+    <span class="ops-stat__hint">{{ stat:tickets_p2 }} P2 &middot; {{ stat:tickets_p3 }} P3 &middot; {{ stat:tickets_p4 }} P4 &middot; practice</span>
+  </a>
+  <a class="ops-stat" href="scripts/">
+    <span class="ops-stat__label">Diagnostic scripts</span>
+    <span class="ops-stat__value">{{ stat:scripts_total }}</span>
+    <span class="ops-stat__hint">PowerShell 5.1 &amp; 7 &middot; Pester-tested</span>
+  </a>
+  <a class="ops-stat" href="processes/priority-matrix/">
+    <span class="ops-stat__label">Process pages</span>
+    <span class="ops-stat__value">{{ stat:process_pages }}</span>
+    <span class="ops-stat__hint">ITIL 4 &middot; priority &amp; SLA</span>
+  </a>
 </div>
 
-!!! tip "Fastest way to get help"
-    Press ++slash++ or click the search box at the top and type what is happening, for example *"outlook not syncing"* or *"vpn"*. Most issues can be solved in under 15 minutes with a KB article.
+<div class="ops-columns" markdown>
 
-## Popular topics
+<div class="ops-panel" markdown>
+
+## Most used procedures
+
+| ID | Procedure | Level | Est. |
+|---|---|---|---|
+| KB-001 | [Reset a forgotten Microsoft 365 password](kb/kb-001-reset-m365-password.md) | <span class="badge badge--l1">L1</span> | 10 min |
+| KB-003 | [Active Directory account locked out](kb/kb-003-ad-account-locked-out.md) | <span class="badge badge--l1">L1</span> | 10 min |
+| KB-005 | [Outlook is not syncing email](kb/kb-005-outlook-not-syncing.md) | <span class="badge badge--l1">L1</span> | 20 min |
+| KB-009 | [VPN does not connect](kb/kb-009-vpn-not-connecting.md) | <span class="badge badge--l1">L1</span> | 20 min |
+| KB-010 | [Wi-Fi connected but no internet (DNS)](kb/kb-010-wifi-dns-troubleshooting.md) | <span class="badge badge--l1">L1</span> | 15 min |
+| KB-012 | [Printer offline or jobs stuck](kb/kb-012-printer-offline.md) | <span class="badge badge--l1">L1</span> | 15 min |
+| KB-018 | [Report a suspicious email (phishing)](kb/kb-018-phishing-suspicious-email.md) | <span class="badge badge--l1">L1</span> | 10 min |
+| KB-020 | [New employee onboarding](kb/kb-020-employee-onboarding.md) | <span class="badge badge--l2">L2</span> | 60 min |
+
+[All articles by category &rarr;](kb/index.md)
+
+## Workspaces
 
 <div class="grid cards" markdown>
 
--   :material-lock-reset:{ .lg .middle } **Accounts & sign-in**
+-   :material-alert-octagon-outline: **Incidents**
 
-    ---
+    Worked cases: classification, diagnosis, escalation and resolution timeline.
 
-    Password resets, MFA, locked accounts and new hires.
+    [Open incidents &rarr;](tickets/index.md)
 
-    [:octicons-arrow-right-24: Accounts articles](kb/index.md#accounts-identity)
+-   :material-book-open-variant: **Knowledge Base**
 
--   :material-email-sync-outline:{ .lg .middle } **Email & collaboration**
+    Step-by-step fixes with symptoms, cause and escalation criteria.
 
-    ---
+    [Browse KB &rarr;](kb/index.md)
 
-    Outlook, Teams and OneDrive problems.
+-   :material-console: **Diagnostics**
 
-    [:octicons-arrow-right-24: Microsoft 365 articles](kb/index.md#microsoft-365)
+    PowerShell toolkit: system report, connectivity, cleanup, AD and print spooler.
 
--   :material-wifi-strength-alert-outline:{ .lg .middle } **Network & VPN**
+    [Open toolkit &rarr;](scripts/index.md)
 
-    ---
+-   :material-timer-sand: **SLA & Processes**
 
-    Wi-Fi, DNS and remote-access troubleshooting.
+    Incident vs. request, priority matrix, escalation flow and templates.
 
-    [:octicons-arrow-right-24: Network articles](kb/index.md#network)
+    [Open processes &rarr;](processes/index.md)
 
--   :material-laptop:{ .lg .middle } **Devices & printing**
+-   :material-lan: **Infrastructure & Lab**
 
-    ---
+    Service dependency map and the planned Windows Server lab.
 
-    Slow PCs, printers, BitLocker and approved software.
+    [Open map &rarr;](infrastructure.md)
 
-    [:octicons-arrow-right-24: Hardware & software articles](kb/index.md#hardware-printing)
+-   :material-ticket-outline: **Ticketing tools**
 
--   :material-shield-alert-outline:{ .lg .middle } **Security**
+    How this KB and SLAs map to Zendesk and Freshdesk.
 
-    ---
-
-    Suspicious emails and what to do right now.
-
-    [:octicons-arrow-right-24: Security articles](kb/index.md#security)
-
--   :material-powershell:{ .lg .middle } **Technician toolkit**
-
-    ---
-
-    Tested PowerShell scripts used by the service desk.
-
-    [:octicons-arrow-right-24: Scripts](scripts/index.md)
+    [Read guide &rarr;](tools-ticketing.md)
 
 </div>
 
-## Contact the Service Desk
+</div>
 
-| Channel | When to use it | Availability |
+<div class="ops-panel" markdown>
+
+## Priority &amp; SLA targets
+
+| Priority | First response | Resolution |
 |---|---|---|
-| **Self-service portal** (this site) | Search for a fix first | 24/7 |
-| **Service desk email** `servicedesk@acme.example` | Non-urgent requests (P3/P4) | Mon–Fri 08:00–18:00 |
-| **Phone** ext. `4357` (H-E-L-P) | Urgent issues: you cannot work (P1/P2) | Mon–Fri 08:00–18:00, on-call for P1 |
+| <span class="badge badge--p1">P1 Critical</span> | 15 min | 4 h |
+| <span class="badge badge--p2">P2 High</span> | 30 min | 8 business h |
+| <span class="badge badge--p3">P3 Medium</span> | 4 business h | 3 business days |
+| <span class="badge badge--p4">P4 Low</span> | 1 business day | 5 business days |
 
-See the [priority matrix and SLAs](processes/priority-matrix.md) to understand how fast we respond.
+[How priority is calculated &rarr;](processes/priority-matrix.md)
 
-!!! info "About this site"
-    Acme Corp is a **fictional company**. This portal is a portfolio project that shows how an IT Service Desk documents its knowledge, processes and tooling. Ticket case studies are clearly marked **practice scenarios**.
+## Case states
+
+| State | Meaning |
+|---|---|
+| <span class="badge badge--resolved">Resolved</span> | Fix applied and confirmed by the user |
+| <span class="badge badge--escalated">Escalated</span> | Handed to L2/L3 or a vendor with a hand-off note |
+| <span class="badge badge--security">Security</span> | Security incident, containment first |
+| <span class="badge badge--request">Request</span> | Service request with approval |
+
+## Contact
+
+| Channel | Use for |
+|---|---|
+| Portal (this site) | Self-service, 24/7 |
+| `servicedesk@acme.example` | P3/P4, Mon–Fri 08–18 |
+| Phone ext. `4357` | P1/P2, on-call for P1 |
+
+</div>
+
+</div>
+
+!!! info "About this portal"
+    Acme Corp is a **fictional company** and this is a portfolio project. Counts above are computed from the repository when the site is built; there is no live monitoring or ticket queue behind this page. Incident cases are **practice scenarios**.

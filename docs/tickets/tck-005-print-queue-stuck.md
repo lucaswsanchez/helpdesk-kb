@@ -11,9 +11,21 @@ title: "TCK-005: Print Jobs Stuck in the Queue"
 |---|---|
 | **Type** | Incident |
 | **Category** | Hardware & Printing > Print queue |
-| **Priority** | **P4** — Impact: Low (one user) · Urgency: Low (another printer nearby works) |
+| **Priority** | <span class="badge badge--p4">P4</span> — Impact: Low (one user) · Urgency: Low (another printer nearby works) |
+| **Status** | <span class="badge badge--resolved">Resolved</span> |
 | **Channel** | Walk-up |
 | **Related KB** | [KB-012 Printer Shows Offline or Jobs Are Stuck](../kb/kb-012-printer-offline.md) |
+
+## Resolution timeline
+
+<div class="timeline" markdown>
+
+1. **Reported** Walk-up: large PDF stuck, nothing prints, jobs cannot be cancelled.
+2. **Triaged** Incident, Hardware & Printing, <span class="badge badge--p4">P4</span>: another printer works.
+3. **Diagnosed** A colleague prints fine to the same printer: local spooler blocked by a corrupted job.
+4. **Resolved** Reset-PrintSpooler.ps1 previewed with -WhatIf, then run; document reprinted.
+
+</div>
 
 ## User report
 

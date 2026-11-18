@@ -11,9 +11,22 @@ title: "TCK-001: Account Keeps Locking After a Password Change"
 |---|---|
 | **Type** | Incident |
 | **Category** | Accounts & Identity > Account lockout |
-| **Priority** | **P3** — Impact: Low (one user) · Urgency: High (cannot sign in) |
+| **Priority** | <span class="badge badge--p3">P3</span> — Impact: Low (one user) · Urgency: High (cannot sign in) |
+| **Status** | <span class="badge badge--resolved">Resolved</span> |
 | **Channel** | Phone |
 | **Related KB** | [KB-003 Active Directory Account Locked Out](../kb/kb-003-ad-account-locked-out.md) |
+
+## Resolution timeline
+
+<div class="timeline" markdown>
+
+1. **Reported** Phone call: third lockout of the morning after a password change.
+2. **Triaged** Incident, Accounts & Identity, <span class="badge badge--p3">P3</span>. Identity verified by call-back.
+3. **Diagnosed** Bad attempts continue while the user is idle; iOS Mail still uses the old password (Event 4740).
+4. **Resolved** Account unlocked, mail moved to the Outlook app, stale credential removed. No lockouts in 15 minutes.
+5. **Follow-up** Ticket kept open one day; note proposed for password-change emails.
+
+</div>
 
 ## User report
 

@@ -8,7 +8,7 @@ title: Get-InactiveAccount
 
 Reports user accounts that have not signed in for a given number of days.
 
-| | |
+| Property | Value |
 |---|---|
 | **Changes the system** | No, read-only |
 | **Supports `-WhatIf` / `-Confirm`** | Not needed (read-only) |

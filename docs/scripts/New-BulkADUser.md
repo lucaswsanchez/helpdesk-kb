@@ -8,7 +8,7 @@ title: New-BulkADUser
 
 Creates Active Directory user accounts in bulk from a CSV file, with -WhatIf and a simulation mode.
 
-| | |
+| Property | Value |
 |---|---|
 | **Changes the system** | Yes |
 | **Supports `-WhatIf` / `-Confirm`** | Yes |

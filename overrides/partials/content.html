@@ -1,0 +1,28 @@
+{#-
+  Copy of Material's partials/content.html with one change: KB articles render
+  their front matter metadata (id, level, category, time, review date) as a
+  badge row directly under the H1, so the Markdown stays clean for search and
+  RAG ingestion.
+-#}
+{% include "partials/tags.html" %}
+{% include "partials/actions.html" %}
+{% if "<h1" not in page.content %}
+  <h1>{{ page.title | d(config.site_name, true)}}</h1>
+{% endif %}
+{% if page.meta and page.meta.id and page.meta.level and "</h1>" in page.content %}
+  {% set parts = page.content.split("</h1>", 1) %}
+  {{ parts[0] }}</h1>
+  <div class="kb-meta" aria-label="Article metadata">
+    <span class="kb-badge">{{ page.meta.id }}</span>
+    <span class="kb-badge kb-badge--{{ page.meta.level | lower }}" title="Support level">{{ page.meta.level }}{% if page.meta.level == "L1" %} &middot; first line{% else %} &middot; technician{% endif %}</span>
+    <span class="kb-badge">{{ page.meta.category }}</span>
+    {% if page.meta.estimated_time %}<span class="kb-badge" title="Estimated resolution time">~{{ page.meta.estimated_time }}</span>{% endif %}
+    {% if page.meta.last_reviewed %}<span class="kb-badge" title="Last reviewed">reviewed {{ page.meta.last_reviewed }}</span>{% endif %}
+  </div>
+  {{ parts[1] }}
+{% else %}
+  {{ page.content }}
+{% endif %}
+{% include "partials/source-file.html" %}
+{% include "partials/feedback.html" %}
+{% include "partials/comments.html" %}

@@ -114,7 +114,7 @@ function ConvertTo-ScriptPage {
     $null = $sb.AppendLine()
     $null = $sb.AppendLine((Get-HelpText $help.Synopsis).Trim())
     $null = $sb.AppendLine()
-    $null = $sb.AppendLine('| | |')
+    $null = $sb.AppendLine('| Property | Value |')
     $null = $sb.AppendLine('|---|---|')
     $null = $sb.AppendLine("| **Changes the system** | $(if ($readOnly[$name]) { 'No, read-only' } else { 'Yes' }) |")
     $null = $sb.AppendLine("| **Supports ``-WhatIf`` / ``-Confirm``** | $(if ($supportsWhatIf) { 'Yes' } else { 'Not needed (read-only)' }) |")

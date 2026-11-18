@@ -8,7 +8,7 @@ title: Reset-PrintSpooler
 
 Clears stuck print jobs by stopping the Print Spooler, emptying the spool folder and starting it again.
 
-| | |
+| Property | Value |
 |---|---|
 | **Changes the system** | Yes |
 | **Supports `-WhatIf` / `-Confirm`** | Yes |

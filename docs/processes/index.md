@@ -8,63 +8,60 @@ How the Acme Corp Service Desk receives, classifies, prioritizes, resolves and e
 
 <div class="grid cards" markdown>
 
--   :material-call-split:{ .lg .middle } **Incidents vs. service requests**
+-   :material-call-split: **Incidents vs. service requests**
 
-    ---
 
     Is something broken, or is the user asking for something? Classify correctly first.
 
-    [:octicons-arrow-right-24: Read more](incident-vs-request.md)
+    [Read more &rarr;](incident-vs-request.md)
 
--   :material-table-large:{ .lg .middle } **Priority matrix & SLAs**
+-   :material-table-large: **Priority matrix & SLAs**
 
-    ---
 
     Impact × urgency gives the priority, and the priority gives the response and resolution targets.
 
-    [:octicons-arrow-right-24: Read more](priority-matrix.md)
+    [Read more &rarr;](priority-matrix.md)
 
--   :material-sitemap:{ .lg .middle } **Escalation flow**
+-   :material-sitemap: **Escalation flow**
 
-    ---
 
     When and how a ticket moves from L1 to L2, L3 or a vendor.
 
-    [:octicons-arrow-right-24: Read more](escalation.md)
+    [Read more &rarr;](escalation.md)
 
--   :material-message-text-outline:{ .lg .middle } **Response templates**
+-   :material-message-text-outline: **Response templates**
 
-    ---
 
     Ready-to-use replies in English and Spanish with a friendly, clear tone.
 
-    [:octicons-arrow-right-24: Read more](response-templates.md)
+    [Read more &rarr;](response-templates.md)
 
--   :material-account-switch-outline:{ .lg .middle } **Onboarding & offboarding**
+-   :material-account-switch-outline: **Onboarding & offboarding**
 
-    ---
 
     Checklists for joiners and leavers.
 
-    [:octicons-arrow-right-24: Read more](onboarding-offboarding.md)
+    [Read more &rarr;](onboarding-offboarding.md)
 
 </div>
 
 ## Ticket lifecycle
 
+A ticket moves through these states. *Pending user* pauses the SLA clock; a resolved ticket closes automatically after 3 business days without a reply, or reopens if the user replies.
+
 ```mermaid
 stateDiagram-v2
-    direction LR
-    [*] --> New: User contacts the Service Desk
-    New --> Assigned: Classify + prioritize
-    Assigned --> InProgress: Technician starts work
-    InProgress --> PendingUser: Waiting on user
-    PendingUser --> InProgress: User replies
-    InProgress --> Escalated: Needs L2/L3/vendor
-    Escalated --> InProgress: Returned with fix
-    InProgress --> Resolved: Fix applied + user confirms
-    Resolved --> Closed: No reply in 3 business days
-    Resolved --> InProgress: User reopens
+    direction TB
+    [*] --> New: contact
+    New --> Assigned: classify
+    Assigned --> InProgress: start work
+    InProgress --> PendingUser: ask user
+    PendingUser --> InProgress: reply
+    InProgress --> Escalated: L2/L3
+    Escalated --> InProgress: fix back
+    InProgress --> Resolved: confirmed
+    Resolved --> InProgress: reopen
+    Resolved --> Closed: 3 days
     Closed --> [*]
 ```
 

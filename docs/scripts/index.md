@@ -6,15 +6,19 @@ title: Toolkit
 
 Seven scripts the Service Desk uses for diagnostics and routine administration. Each one has comment-based help (`Get-Help`), validated parameters, error handling and **automated Pester tests**, and is linted with **PSScriptAnalyzer** in CI on Windows PowerShell 5.1 and PowerShell 7.
 
-| Script | What it does | Level | Changes the system? | Related KB |
+<div class="toolkit-table" markdown>
+
+| Script | What it does | Level | Changes system | Related KB |
 |---|---|---|---|---|
-| [Get-SystemDiagnostics](Get-SystemDiagnostics.md) | OS, uptime, CPU, RAM, disks and network as an HTML report with health warnings | L1 | No | [KB-013](../kb/kb-013-slow-computer.md) |
-| [Test-Connectivity](Test-Connectivity.md) | Layered gateway → internet → DNS → TCP port checks | L1 | No | [KB-010](../kb/kb-010-wifi-dns-troubleshooting.md), [KB-009](../kb/kb-009-vpn-not-connecting.md) |
-| [Clear-TempFiles](Clear-TempFiles.md) | Deletes old temp files, skips files in use, reports space freed | L1 | Yes (`-WhatIf`) | [KB-013](../kb/kb-013-slow-computer.md) |
-| [Export-InstalledSoftware](Export-InstalledSoftware.md) | Installed software inventory to CSV | L1/L2 | No | [KB-016](../kb/kb-016-install-approved-software.md) |
-| [Reset-PrintSpooler](Reset-PrintSpooler.md) | Stops the spooler, clears stuck jobs, restarts it | L1 (admin) | Yes (`-WhatIf`) | [KB-012](../kb/kb-012-printer-offline.md) |
-| [New-BulkADUser](New-BulkADUser.md) | Bulk AD account creation from CSV with simulation mode | L2 | Yes (`-WhatIf`) | [KB-020](../kb/kb-020-employee-onboarding.md) |
-| [Get-InactiveAccount](Get-InactiveAccount.md) | Accounts with no sign-in for 90+ days, with recommendations | L2 | No | [KB-021](../kb/kb-021-employee-offboarding.md) |
+| [Get-SystemDiagnostics](Get-SystemDiagnostics.md) | OS, uptime, CPU, RAM, disks and network as an HTML report with health warnings | <span class="badge badge--l1">L1</span> | No | [KB-013](../kb/kb-013-slow-computer.md) |
+| [Test-Connectivity](Test-Connectivity.md) | Layered gateway → internet → DNS → TCP port checks | <span class="badge badge--l1">L1</span> | No | [KB-010](../kb/kb-010-wifi-dns-troubleshooting.md), [KB-009](../kb/kb-009-vpn-not-connecting.md) |
+| [Clear-TempFiles](Clear-TempFiles.md) | Deletes old temp files, skips files in use, reports space freed | <span class="badge badge--l1">L1</span> | Yes &middot; `-WhatIf` | [KB-013](../kb/kb-013-slow-computer.md) |
+| [Export-InstalledSoftware](Export-InstalledSoftware.md) | Installed software inventory to CSV | <span class="badge badge--l1">L1</span> <span class="badge badge--l2">L2</span> | No | [KB-016](../kb/kb-016-install-approved-software.md) |
+| [Reset-PrintSpooler](Reset-PrintSpooler.md) | Stops the spooler, clears stuck jobs, restarts it | <span class="badge badge--l1">L1</span> admin | Yes &middot; `-WhatIf` | [KB-012](../kb/kb-012-printer-offline.md) |
+| [New-BulkADUser](New-BulkADUser.md) | Bulk AD account creation from CSV with simulation mode | <span class="badge badge--l2">L2</span> | Yes &middot; `-WhatIf` | [KB-020](../kb/kb-020-employee-onboarding.md) |
+| [Get-InactiveAccount](Get-InactiveAccount.md) | Accounts with no sign-in for 90+ days, with recommendations | <span class="badge badge--l2">L2</span> | No | [KB-021](../kb/kb-021-employee-offboarding.md) |
+
+</div>
 
 ## Getting started
 

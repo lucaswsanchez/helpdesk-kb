@@ -8,7 +8,7 @@ title: Get-SystemDiagnostics
 
 Collects a health snapshot of the local Windows computer and exports it as an HTML report.
 
-| | |
+| Property | Value |
 |---|---|
 | **Changes the system** | No, read-only |
 | **Supports `-WhatIf` / `-Confirm`** | Not needed (read-only) |

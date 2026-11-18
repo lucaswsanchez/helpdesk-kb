@@ -8,7 +8,7 @@ title: Export-InstalledSoftware
 
 Exports an inventory of installed software (name, version, publisher, install date) to CSV.
 
-| | |
+| Property | Value |
 |---|---|
 | **Changes the system** | No, read-only |
 | **Supports `-WhatIf` / `-Confirm`** | Not needed (read-only) |

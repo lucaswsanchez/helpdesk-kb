@@ -71,14 +71,21 @@ def render_index(articles: list[tuple[Path, dict]]) -> str:
         rows = [(p, m) for p, m in articles if m.get("category") == category]
         if not rows:
             continue
-        lines += [f"## {category} {{#{anchor}}}", "", "| ID | Article | Level | Est. time |", "|---|---|---|---|"]
+        lines += [
+            f"## {category} {{#{anchor}}}",
+            "",
+            '<div class="kb-table" markdown>',
+            "",
+            "| ID | Article | Level | Est. time |",
+            "|---|---|---|---|",
+        ]
         for path, meta in rows:
             lines.append(
                 f"| {meta['id']} | [{meta['title']}]({path.name}) | "
                 f'<span class="badge badge--{str(meta["level"]).lower()}">{meta["level"]}</span> | '
                 f"{meta.get('estimated_time', '')} |"
             )
-        lines.append("")
+        lines += ["", "</div>", ""]
     lines += [
         "---",
         "",

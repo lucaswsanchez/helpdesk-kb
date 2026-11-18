@@ -27,11 +27,15 @@ Priority is **not** how loud the caller is. It is calculated from two factors:
 
 ## Matrix
 
+<div class="matrix-table" markdown>
+
 | Impact ↓ / Urgency → | **High** | **Medium** | **Low** |
 |---|---|---|---|
-| **High** | <span class="p1">P1 Critical</span> | <span class="p2">P2 High</span> | <span class="p3">P3 Medium</span> |
-| **Medium** | <span class="p2">P2 High</span> | <span class="p3">P3 Medium</span> | <span class="p4">P4 Low</span> |
-| **Low** | <span class="p3">P3 Medium</span> | <span class="p4">P4 Low</span> | <span class="p4">P4 Low</span> |
+| **High** | <span class="badge badge--p1">P1 Critical</span> | <span class="badge badge--p2">P2 High</span> | <span class="badge badge--p3">P3 Medium</span> |
+| **Medium** | <span class="badge badge--p2">P2 High</span> | <span class="badge badge--p3">P3 Medium</span> | <span class="badge badge--p4">P4 Low</span> |
+| **Low** | <span class="badge badge--p3">P3 Medium</span> | <span class="badge badge--p4">P4 Low</span> | <span class="badge badge--p4">P4 Low</span> |
+
+</div>
 
 ## SLA targets
 
@@ -39,10 +43,10 @@ Targets are measured in **business hours** (Mon–Fri 08:00–18:00) except P1, 
 
 | Priority | First response | Resolution target | Update frequency | Who is notified |
 |---|---|---|---|---|
-| <span class="p1">P1 Critical</span> | 15 min | 4 hours | Every 30 min | Team lead, IT manager, status page |
-| <span class="p2">P2 High</span> | 30 min | 8 business hours | Every 2 hours | Team lead |
-| <span class="p3">P3 Medium</span> | 4 business hours | 3 business days | Daily | — |
-| <span class="p4">P4 Low</span> | 1 business day | 5 business days | Every 2 days | — |
+| <span class="badge badge--p1">P1 Critical</span> | 15 min | 4 hours | Every 30 min | Team lead, IT manager, status page |
+| <span class="badge badge--p2">P2 High</span> | 30 min | 8 business hours | Every 2 hours | Team lead |
+| <span class="badge badge--p3">P3 Medium</span> | 4 business hours | 3 business days | Daily | — |
+| <span class="badge badge--p4">P4 Low</span> | 1 business day | 5 business days | Every 2 days | — |
 
 **Service requests** use the fulfillment time of their catalog item instead (for example: new hire account 5 business days, shared folder access 2 business days, software from Company Portal same day).
 

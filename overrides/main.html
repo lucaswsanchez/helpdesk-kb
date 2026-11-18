@@ -8,10 +8,13 @@
   {% if page.meta and page.meta.id and page.meta.level %}
     <div class="kb-meta" aria-label="Article metadata">
       <span class="kb-badge">{{ page.meta.id }}</span>
-      <span class="kb-badge" title="Support level">Level: {{ page.meta.level }}</span>
+      <span class="kb-badge kb-badge--{{ page.meta.level | lower }}" title="Support level">{{ page.meta.level }}{% if page.meta.level == "L1" %} &middot; first line{% else %} &middot; technician{% endif %}</span>
       <span class="kb-badge">{{ page.meta.category }}</span>
       {% if page.meta.estimated_time %}
-        <span class="kb-badge" title="Estimated resolution time">&#9201; {{ page.meta.estimated_time }}</span>
+        <span class="kb-badge" title="Estimated resolution time">~{{ page.meta.estimated_time }}</span>
+      {% endif %}
+      {% if page.meta.last_reviewed %}
+        <span class="kb-badge" title="Last reviewed">reviewed {{ page.meta.last_reviewed }}</span>
       {% endif %}
     </div>
   {% endif %}

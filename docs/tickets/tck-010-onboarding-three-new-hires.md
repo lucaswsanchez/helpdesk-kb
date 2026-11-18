@@ -12,8 +12,21 @@ title: "TCK-010: Onboarding Three New Hires"
 | **Type** | Service request |
 | **Category** | Onboarding & Offboarding > New hire |
 | **Priority** | Service request — fulfillment target 5 business days (request arrived 7 business days before start) |
+| **Status** | <span class="badge badge--request">Service request &rarr; Fulfilled</span> |
 | **Channel** | HR request form |
 | **Related KB** | [KB-020 New Employee Onboarding](../kb/kb-020-employee-onboarding.md), [Onboarding checklist](../processes/onboarding-offboarding.md) |
+
+## Resolution timeline
+
+<div class="timeline" markdown>
+
+1. **Requested** HR form: three Sales hires starting next Monday, 7 business days ahead.
+2. **Validated** Missing title obtained from HR; manager approved the Sales role template.
+3. **Simulated** New-BulkADUser.ps1 -Simulate found a name collision (john.smith2), accepted by HR.
+4. **Fulfilled** Accounts created disabled with an audit log, groups and licenses assigned, laptops ready.
+5. **Closed** Day one: accounts enabled, MFA registered, all three working by 09:30.
+
+</div>
 
 ## Request
 

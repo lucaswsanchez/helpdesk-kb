@@ -11,9 +11,21 @@ title: "TCK-003: VPN Fails From a Hotel"
 |---|---|
 | **Type** | Incident |
 | **Category** | Network > VPN |
-| **Priority** | **P3** — Impact: Low (one user) · Urgency: High (client presentation in 2 hours needs files from the share) |
+| **Priority** | <span class="badge badge--p3">P3</span> — Impact: Low (one user) · Urgency: High (client presentation in 2 hours needs files from the share) |
+| **Status** | <span class="badge badge--resolved">Resolved</span> |
 | **Channel** | Phone (user travelling) |
 | **Related KB** | [KB-009 VPN Does Not Connect](../kb/kb-009-vpn-not-connecting.md), [KB-010 Wi-Fi Connected but No Internet](../kb/kb-010-wifi-dns-troubleshooting.md) |
+
+## Resolution timeline
+
+<div class="timeline" markdown>
+
+1. **Reported** Phone call from a hotel: VPN cannot reach the gateway, client meeting in 2 hours.
+2. **Triaged** Incident, Network, <span class="badge badge--p3">P3</span> because of the deadline.
+3. **Diagnosed** Internet checked before VPN: the hotel captive portal was not completed.
+4. **Resolved** Portal login completed, VPN connected, file copied and also saved to OneDrive.
+
+</div>
 
 ## User report
 

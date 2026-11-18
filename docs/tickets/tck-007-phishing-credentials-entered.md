@@ -11,9 +11,23 @@ title: "TCK-007: User Entered Password on a Phishing Page"
 |---|---|
 | **Type** | Security incident |
 | **Category** | Security > Phishing |
-| **Priority** | **P2** — Impact: Low→Medium (one account, but access to shared finance mailbox) · Urgency: High (active credential compromise) |
+| **Priority** | <span class="badge badge--p2">P2</span> — Impact: Low→Medium (one account, but access to shared finance mailbox) · Urgency: High (active credential compromise) |
+| **Status** | <span class="badge badge--security">Security incident &rarr; Resolved</span> |
 | **Channel** | Phone |
 | **Related KB** | [KB-018 Report a Suspicious Email (Phishing)](../kb/kb-018-phishing-suspicious-email.md), [KB-001](../kb/kb-001-reset-m365-password.md), [KB-002](../kb/kb-002-mfa-setup-and-reset.md) |
+
+## Resolution timeline
+
+<div class="timeline" markdown>
+
+1. **Reported** Phone call: password entered on a fake OneDrive page and an MFA prompt approved.
+2. **Triaged** Security incident, <span class="badge badge--p2">P2</span>: active credential compromise.
+3. **Contained** Password reset, sessions revoked, rogue MFA method and hiding inbox rule removed.
+4. **Escalated** Security team and Finance manager notified with the email, URL and sign-in logs.
+5. **Resolved** Sender blocked, email purged from 14 mailboxes, MFA re-registered, no payment changes.
+6. **Follow-up** 48 h monitoring; number matching and an awareness session recommended.
+
+</div>
 
 ## User report
 

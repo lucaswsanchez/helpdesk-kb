@@ -11,9 +11,22 @@ title: "TCK-006: Laptop Extremely Slow"
 |---|---|
 | **Type** | Incident |
 | **Category** | Hardware & Printing > Performance |
-| **Priority** | **P4** — Impact: Low (one user) · Urgency: Medium (work is slow but possible) |
+| **Priority** | <span class="badge badge--p4">P4</span> — Impact: Low (one user) · Urgency: Medium (work is slow but possible) |
+| **Status** | <span class="badge badge--resolved">Resolved</span> |
 | **Channel** | Email |
 | **Related KB** | [KB-013 Computer Is Running Slow](../kb/kb-013-slow-computer.md) |
+
+## Resolution timeline
+
+<div class="timeline" markdown>
+
+1. **Reported** Email: laptop unbearably slow, user asks for a replacement.
+2. **Triaged** Incident, Hardware & Printing, <span class="badge badge--p4">P4</span>: work is slow but possible.
+3. **Diagnosed** Diagnostics report: 23 days uptime, C: 4% free, 94% RAM, pending update. Disk healthy.
+4. **Resolved** Temp cleanup, old downloads to OneDrive, startup apps trimmed, restart. Report shows no warnings.
+5. **Follow-up** Storage Sense and a restart-reminder policy suggested; no hardware purchase needed.
+
+</div>
 
 ## User report
 

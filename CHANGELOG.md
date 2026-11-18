@@ -5,6 +5,26 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] - 2026-11-17
+
+### Added
+
+- Operations-workspace design system (dark by default, accessible light mode) documented on a new Design System page.
+- Ctrl+K / Cmd+K command palette over the site's search index, keyboard and screen-reader accessible, with no new dependencies.
+- Service Desk Overview page with counts computed at build time by `hooks/stats.py` (with pytest coverage).
+- Priority, state and support-level badges used consistently across the overview, KB index, priority matrix, infrastructure map and ticket cases.
+- Resolution timeline (stages, no timestamps) and a Status field in every ticket case.
+- Infrastructure Map page with a Mermaid service dependency map, impact reference and triage path.
+
+### Changed
+
+- Navigation reorganized into Overview, Incidents, Knowledge Base, Diagnostics, SLA & Processes, Infrastructure & Lab and About.
+- KB article metadata badges now show level, category, estimated time and last-reviewed date.
+
+### Removed
+
+- The decorative "service status" strip on the home page, which could be mistaken for live monitoring.
+
 ## [1.0.0] - 2026-11-17
 
 ### Added
@@ -20,4 +40,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Tools & Ticketing guide (Zendesk / Freshdesk mapping), technical decisions, home lab plan.
 - Dockerfile and docker-compose for local preview.
 
+[1.1.0]: https://github.com/lucaswsanchez/helpdesk-kb/releases/tag/v1.1.0
 [1.0.0]: https://github.com/lucaswsanchez/helpdesk-kb/releases/tag/v1.0.0

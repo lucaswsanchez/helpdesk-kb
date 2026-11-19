@@ -58,6 +58,7 @@ hooks:
   - hooks/stats.py
 
 extra:
+  generator: false
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/lucaswsanchez

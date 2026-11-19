@@ -11,6 +11,8 @@ hide:
 
 Each case has the same layout: ticket fields, resolution timeline, user report, diagnosis, resolution, message to the user, and root cause with prevention.
 
+<div class="table-filters" data-columns="Priority,Status,Category" aria-label="Filter incident cases"></div>
+
 | Case | Type | Category | Priority | Status | Root cause |
 |---|---|---|---|---|---|
 | [TCK-001 Account keeps locking after a password change](tck-001-lockout-after-password-change.md) | Incident | Accounts & Identity | <span class="badge badge--p3">P3</span> | <span class="badge badge--resolved">Resolved</span> | Stale password in a phone mail app |

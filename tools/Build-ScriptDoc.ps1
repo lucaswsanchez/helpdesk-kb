@@ -160,6 +160,32 @@ function ConvertTo-ScriptPage {
         }
     }
 
+    # Real captured output, if one was recorded in scripts/samples/output.
+    # Line 1: "# Command: ...", line 2: "# Note: ...", then the console output.
+    $samplePath = Join-Path $scriptDir "samples\output\$name.txt"
+    if (Test-Path -LiteralPath $samplePath) {
+        $sampleLines = @((Get-Content -LiteralPath $samplePath -Encoding UTF8) -replace "`r", '')
+        $command = $sampleLines[0] -replace '^#\s*Command:\s*', ''
+        $note = $sampleLines[1] -replace '^#\s*Note:\s*', ''
+        $null = $sb.AppendLine('## Sample output')
+        $null = $sb.AppendLine()
+        $null = $sb.AppendLine($note)
+        $null = $sb.AppendLine()
+        $null = $sb.AppendLine('```powershell')
+        $null = $sb.AppendLine($command)
+        $null = $sb.AppendLine('```')
+        $null = $sb.AppendLine()
+        # Console tables keep their alignment (no wrapping) and scroll instead.
+        $null = $sb.AppendLine('<div class="console-output" markdown>')
+        $null = $sb.AppendLine()
+        $null = $sb.AppendLine('```text')
+        $null = $sb.AppendLine((($sampleLines | Select-Object -Skip 2) -join "`n").TrimEnd())
+        $null = $sb.AppendLine('```')
+        $null = $sb.AppendLine()
+        $null = $sb.AppendLine('</div>')
+        $null = $sb.AppendLine()
+    }
+
     $notes = Get-HelpText $help.alertSet.alert
     if ($notes.Trim()) {
         $null = $sb.AppendLine('## Notes')

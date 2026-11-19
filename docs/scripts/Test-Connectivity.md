@@ -58,6 +58,29 @@ Tests internal name resolution and access to the file server and VPN gateway.
 
 Exports all results to CSV and shows only failures.
 
+## Sample output
+
+Real run on the author's home network (private gateway address); public addresses are Microsoft endpoints.
+
+```powershell
+.\Test-Connectivity.ps1
+```
+
+<div class="console-output" markdown>
+
+```text
+[PASS] Gateway          192.168.1.1                              Reply in 4 ms
+[PASS] Internet (ICMP)  1.1.1.1                                  Reply in 18 ms
+[PASS] DNS              www.microsoft.com                        2.19.45.226
+[PASS] DNS              login.microsoftonline.com                20.190.173.130, 20.190.173.132, 40.126.45.20
+[PASS] DNS              outlook.office365.com                    52.97.51.162, 52.97.106.98, 52.97.51.130
+[PASS] TCP              login.microsoftonline.com:443            Port open
+[PASS] TCP              outlook.office365.com:443                Port open
+All checks passed.
+```
+
+</div>
+
 ## Notes
 
 Works on Windows PowerShell 5.1 and PowerShell 7+. No admin rights needed. Related KB: KB-009 VPN Does Not Connect, KB-010 Wi-Fi Connected but No Internet.

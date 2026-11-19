@@ -13,10 +13,10 @@
 
 &nbsp;&nbsp;&nbsp;[Knowledge Base](https://lucaswsanchez.github.io/helpdesk-kb/kb/) · [Priority matrix & SLAs](https://lucaswsanchez.github.io/helpdesk-kb/processes/priority-matrix/) · [Ticket cases](https://lucaswsanchez.github.io/helpdesk-kb/tickets/) · [PowerShell toolkit](https://lucaswsanchez.github.io/helpdesk-kb/scripts/) · [Project board](https://github.com/users/lucaswsanchez/projects/3)
 
-![Service Desk Overview: stat tiles computed from the repo, most used procedures, priority and SLA targets](docs/assets/screenshot-home.png)
+![Service Desk Overview: symptom-first triage grid, priority and response targets](docs/assets/screenshot-home.png)
 
 <details>
-<summary>Incident case with status badges and resolution timeline</summary>
+<summary>Incident case with ticket fields and a colored resolution timeline</summary>
 
 ![Incident case TCK-004 with priority and status badges and a resolution timeline](docs/assets/screenshot-incident.png)
 
@@ -40,7 +40,7 @@
 
 ## Features
 
-- **Operations-workspace UI** on MkDocs Material: dark-first [design system](https://lucaswsanchez.github.io/helpdesk-kb/design-system/) (#10151C / #19212B / #5B9EFF / #42C8B5 / #F2A65A, Inter + JetBrains Mono), consistent priority/state badges, **Ctrl+K command palette** over the real search index, an overview whose numbers are computed from the repo at build time, and an [infrastructure dependency map](https://lucaswsanchez.github.io/helpdesk-kb/infrastructure/). No simulated monitoring or fake telemetry.
+- **Operations-workspace UI** on MkDocs Material: a symptom-first overview ("What is happening?" triage grid, security first), ticket-style incident pages (fields, *Handled by*, colored resolution timeline), client-side filters for incidents and KB articles, a **Ctrl+K command palette** over the real search index (pages and section headings), real captured script output, and an [infrastructure dependency map](https://lucaswsanchez.github.io/helpdesk-kb/infrastructure/). Dark-first [design system](https://lucaswsanchez.github.io/helpdesk-kb/design-system/) (#10151C / #19212B / #5B9EFF / #42C8B5 / #F2A65A, Inter + JetBrains Mono). No simulated monitoring or fake telemetry.
 - **Knowledge base, 21 articles** in 7 categories, each with *Summary, Applies to, Symptoms, Cause, Resolution, Escalation criteria, Related articles, Last reviewed*, a support level (**L1/L2**) and an estimated resolution time shown as badges.
 - **ITIL 4 processes**: incident vs. service request, priority matrix and SLA targets, tiered escalation flow, onboarding/offboarding checklists, bilingual response templates.
 - **10 ticket case studies** (practice scenarios) showing classification, step-by-step diagnosis, escalation notes and user communication.

@@ -36,6 +36,16 @@ Describe 'ConvertTo-SamAccountName' {
         $sam | Should -Be 'alexandria.montgomer'
     }
 
+    It 'keeps the last name when the first name alone is 20+ characters' {
+        $sam = ConvertTo-SamAccountName -FirstName 'Alexandria-Catherine' -LastName 'Montgomery-Wellington'
+        $sam | Should -Be 'alexandria.montgomer'
+        $sam.Length | Should -BeLessOrEqual 20
+    }
+
+    It 'keeps a short last name whole' {
+        ConvertTo-SamAccountName -FirstName 'Maximilianalexander' -LastName 'Li' | Should -Be 'maximilianalexand.li'
+    }
+
     It 'throws when nothing usable remains' {
         { ConvertTo-SamAccountName -FirstName '!!!' -LastName 'Smith' } | Should -Throw
     }
@@ -56,8 +66,13 @@ Describe 'Get-UniqueSamAccountName' {
     It 'keeps the result within 20 characters' {
         $taken = [System.Collections.Generic.HashSet[string]]::new([string[]]@('alexandria.montgomer'))
         $r = Get-UniqueSamAccountName -BaseName 'alexandria.montgomer' -Taken $taken
-        $r | Should -Be 'alexandria.montgome2'
+        $r | Should -Be 'alexandri.montgomer2'
         $r.Length | Should -Be 20
+    }
+
+    It 'shortens the first name, not the surname, to fit the number' {
+        $taken = [System.Collections.Generic.HashSet[string]]::new([string[]]@('maximilianalexand.li'))
+        Get-UniqueSamAccountName -BaseName 'maximilianalexand.li' -Taken $taken | Should -Be 'maximilianalexan.li2'
     }
 }
 

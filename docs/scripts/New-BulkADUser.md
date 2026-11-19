@@ -20,7 +20,7 @@ Creates Active Directory user accounts in bulk from a CSV file, with -WhatIf and
 
 Reads new hires from a CSV (FirstName, LastName, Department, Title and optional Manager, Office) and, for each valid row:
 
-- builds a SamAccountName as firstname.lastname (accents removed, lowercase, max 20 characters) and makes it unique, adding a number if the name is already taken in the CSV or in Active Directory
+- builds a SamAccountName as firstname.lastname (accents removed, lowercase, max 20 characters; long names shorten the first name first, so the last name always keeps at least 9 characters) and makes it unique, adding a number if the name is already taken in the CSV or in Active Directory
 - builds the UPN and display name
 - creates the account (disabled by default until the start date) with a random password and "change password at next logon"
 
@@ -85,7 +85,7 @@ Row SamAccountName       UserPrincipalName                 Status    Message
   4 john.smith2          john.smith2@acme.example          Simulated Would create in OU=Users,OU=Acme,DC=acme,DC=example (name
                                                                      'john.smith' was taken)
   5 sean.obrien          sean.obrien@acme.example          Simulated Would create in OU=Users,OU=Acme,DC=acme,DC=example
-  6 alexandria-catherine alexandria-catherine@acme.example Simulated Would create in OU=Users,OU=Acme,DC=acme,DC=example
+  6 alexandria.montgomer alexandria.montgomer@acme.example Simulated Would create in OU=Users,OU=Acme,DC=acme,DC=example
   7                                                        Skipped   FirstName is empty
   8                                                        Skipped   LastName 'T4bles' contains invalid characters
 ```

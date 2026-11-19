@@ -5,6 +5,12 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.1] - 2026-11-19
+
+### Fixed
+
+- New-BulkADUser: a first name of 20 or more characters no longer produces a sAMAccountName without the last name. Long names now shorten the first name first (the last name keeps at least 9 characters), and uniqueness numbers also shorten the first name instead of the surname.
+
 ## [1.2.0] - 2026-11-19
 
 ### Added
@@ -75,6 +81,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Tools & Ticketing guide (Zendesk / Freshdesk mapping), technical decisions, home lab plan.
 - Dockerfile and docker-compose for local preview.
 
+[1.2.1]: https://github.com/lucaswsanchez/helpdesk-kb/releases/tag/v1.2.1
 [1.2.0]: https://github.com/lucaswsanchez/helpdesk-kb/releases/tag/v1.2.0
 [1.1.1]: https://github.com/lucaswsanchez/helpdesk-kb/releases/tag/v1.1.1
 [1.1.0]: https://github.com/lucaswsanchez/helpdesk-kb/releases/tag/v1.1.0

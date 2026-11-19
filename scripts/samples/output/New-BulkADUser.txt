@@ -10,6 +10,6 @@ Row SamAccountName       UserPrincipalName                 Status    Message
   4 john.smith2          john.smith2@acme.example          Simulated Would create in OU=Users,OU=Acme,DC=acme,DC=example (name
                                                                      'john.smith' was taken)
   5 sean.obrien          sean.obrien@acme.example          Simulated Would create in OU=Users,OU=Acme,DC=acme,DC=example
-  6 alexandria-catherine alexandria-catherine@acme.example Simulated Would create in OU=Users,OU=Acme,DC=acme,DC=example
+  6 alexandria.montgomer alexandria.montgomer@acme.example Simulated Would create in OU=Users,OU=Acme,DC=acme,DC=example
   7                                                        Skipped   FirstName is empty
   8                                                        Skipped   LastName 'T4bles' contains invalid characters

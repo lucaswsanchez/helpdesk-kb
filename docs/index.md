@@ -45,6 +45,8 @@ hide:
 
 ## Most used procedures
 
+<div class="compact-table" markdown>
+
 | ID | Procedure | Level | Est. |
 |---|---|---|---|
 | KB-001 | [Reset a forgotten Microsoft 365 password](kb/kb-001-reset-m365-password.md) | <span class="badge badge--l1">L1</span> | 10 min |
@@ -56,15 +58,17 @@ hide:
 | KB-018 | [Report a suspicious email (phishing)](kb/kb-018-phishing-suspicious-email.md) | <span class="badge badge--l1">L1</span> | 10 min |
 | KB-020 | [New employee onboarding](kb/kb-020-employee-onboarding.md) | <span class="badge badge--l2">L2</span> | 60 min |
 
+</div>
+
 [All articles by category &rarr;](kb/index.md){ .ops-panel__link }
 
 ## Contact
 
-| Channel | Use for | Hours |
-|---|---|---|
-| Portal (this site) | Self-service | 24/7 |
-| `servicedesk@acme.example` | P3 / P4 requests | Mon–Fri 08–18 |
-| Phone ext. `4357` | P1 / P2, you cannot work | On-call for P1 |
+| Channel | Use for |
+|---|---|
+| Portal (this site) | Self-service, 24/7 |
+| `servicedesk@acme.example` | P3 / P4 requests, Mon–Fri 08–18 |
+| Phone ext. `4357` | P1 / P2 when you cannot work; on-call for P1 |
 
 </div>
 
@@ -72,12 +76,16 @@ hide:
 
 ## Priority &amp; SLA targets
 
+<div class="compact-table" markdown>
+
 | Priority | First response | Resolution |
 |---|---|---|
 | <span class="badge badge--p1">P1 Critical</span> | 15 min | 4 h |
 | <span class="badge badge--p2">P2 High</span> | 30 min | 8 business h |
 | <span class="badge badge--p3">P3 Medium</span> | 4 business h | 3 business days |
 | <span class="badge badge--p4">P4 Low</span> | 1 business day | 5 business days |
+
+</div>
 
 [How priority is calculated &rarr;](processes/priority-matrix.md){ .ops-panel__link }
 

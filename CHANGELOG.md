@@ -5,6 +5,15 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.1] - 2026-11-18
+
+### Fixed
+
+- Mobile layout: wide data tables render as labelled cards on phones (no horizontal scrolling on any of the 54 pages at 375px), compact overview tables, 2x2 stat tiles, smaller headings and a full site title in the header.
+- Command palette: the result count meant for screen readers was visible; on phones it opens full width with larger tap targets, and keyboard hints are hidden on touch screens.
+- Plain-text templates and hand-off notes wrap instead of scrolling.
+- Design audit fixes: balanced overview columns, full-width tables with aligned columns, centered card grids without orphans, KB metadata under the title, state labels that match their colors, palette-colored admonitions and KB IDs in the sidebar.
+
 ## [1.1.0] - 2026-11-17
 
 ### Added
@@ -40,5 +49,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Tools & Ticketing guide (Zendesk / Freshdesk mapping), technical decisions, home lab plan.
 - Dockerfile and docker-compose for local preview.
 
+[1.1.1]: https://github.com/lucaswsanchez/helpdesk-kb/releases/tag/v1.1.1
 [1.1.0]: https://github.com/lucaswsanchez/helpdesk-kb/releases/tag/v1.1.0
 [1.0.0]: https://github.com/lucaswsanchez/helpdesk-kb/releases/tag/v1.0.0

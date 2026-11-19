@@ -891,6 +891,14 @@
   white-space: pre-wrap;
   overflow-wrap: anywhere;
 }
+/* Captured console output keeps column alignment and scrolls sideways. */
+.md-typeset .console-output .highlight pre > code {
+  white-space: pre;
+  overflow-wrap: normal;
+}
+.md-typeset .console-output pre {
+  border-left: 3px solid var(--ops-teal);
+}
 
 /* =====================================================================
    Mobile (phones up to 719px; Material's own breakpoint)
@@ -1129,4 +1137,77 @@
 /* Light scheme: the logo is drawn in white for the dark header. */
 [data-md-color-scheme="default"] .md-header__button.md-logo img {
   filter: brightness(0) saturate(100%) invert(14%) sepia(18%) saturate(1200%) hue-rotate(176deg);
+}
+
+/* ---------- Table filters (enhancements.js) ---------- */
+.md-typeset .table-filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1.2rem;
+  margin: 1rem 0 0.6rem;
+}
+.md-typeset .table-filters:empty {
+  display: none;
+}
+.table-filters__group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.3rem;
+}
+.table-filters__label {
+  font-size: 0.64rem;
+  font-weight: 600;
+  color: var(--ops-muted);
+  margin-right: 0.15rem;
+}
+.table-filters__chip,
+.table-filters__clear {
+  font: inherit;
+  font-size: 0.66rem;
+  line-height: 1.4;
+  padding: 0.2rem 0.6rem;
+  color: var(--ops-text);
+  background: transparent;
+  border: 1px solid var(--ops-border);
+  border-radius: 999px;
+  cursor: pointer;
+}
+.table-filters__chip:hover,
+.table-filters__clear:hover {
+  border-color: var(--ops-blue);
+}
+.table-filters__chip[aria-pressed="true"] {
+  color: var(--ops-bg);
+  background: var(--ops-blue);
+  border-color: var(--ops-blue);
+}
+.table-filters__chip:focus-visible,
+.table-filters__clear:focus-visible {
+  outline: 2px solid var(--ops-blue);
+  outline-offset: 2px;
+}
+.table-filters__footer {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  flex-basis: 100%;
+}
+.md-typeset .table-filters__status {
+  margin: 0;
+  font-size: 0.64rem;
+  color: var(--ops-muted);
+}
+.table-filters__clear {
+  border-style: dashed;
+}
+.md-typeset table tr[hidden],
+.md-typeset [hidden] {
+  display: none !important;
+}
+@media screen and (max-width: 44.9375em) {
+  .table-filters__chip {
+    padding: 0.35rem 0.7rem;
+  }
 }

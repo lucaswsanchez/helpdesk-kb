@@ -52,6 +52,29 @@ Runs against the sample data (no domain needed).
 
 Lists accounts in the Users OU inactive for 60+ days and exports the report.
 
+## Sample output
+
+Real run against the sample CSV in this repository.
+
+```powershell
+.\Get-InactiveAccount.ps1 -InputCsv .\samples\ad-users.csv -ReferenceDate 2026-11-17
+```
+
+<div class="console-output" markdown>
+
+```text
+4 of 9 account(s) inactive for 90+ days (reference date 2026-11-17).
+
+SamAccountName Department  Enabled LastLogonDate DaysInactive Recommendation
+-------------- ----------  ------- ------------- ------------ --------------
+test.user      IT             True Never                  534 Never signed in: confirm with manager, then disable
+kiosk.lobby    Facilities     True 2025-12-20             332 Confirm with manager/HR, then disable
+old.contractor Engineering    True 2026-05-02             199 Confirm with manager/HR, then disable
+peter.white    Legal          True 2026-08-01             108 Confirm with manager/HR, then disable
+```
+
+</div>
+
 ## Notes
 
 LastLogonDate (lastLogonTimestamp) replicates with a delay of up to 14 days by design, so it is accurate enough for 30+ day reviews. Works on Windows PowerShell 5.1 and PowerShell 7+. Related KB: KB-021 Employee Offboarding.

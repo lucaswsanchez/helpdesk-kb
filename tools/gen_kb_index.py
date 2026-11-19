@@ -66,6 +66,8 @@ def render_index(articles: list[tuple[Path, dict]]) -> str:
         "    **L1** articles can be followed by the user or a first-line technician. "
         "**L2** articles need admin rights or a specialist team; the user should open a ticket.",
         "",
+        '<div class="table-filters" data-columns="Level" data-scope="all" aria-label="Filter articles by support level"></div>',
+        "",
     ]
     for category, anchor in CATEGORIES.items():
         rows = [(p, m) for p, m in articles if m.get("category") == category]

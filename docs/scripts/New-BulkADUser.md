@@ -64,6 +64,34 @@ In AD mode, shows each New-ADUser operation without creating anything.
 
 Creates the accounts and writes an audit log.
 
+## Sample output
+
+Real run in simulation mode against the sample CSV in this repository (no domain needed).
+
+```powershell
+.\New-BulkADUser.ps1 -CsvPath .\samples\new-hires.csv -Simulate | Format-Table Row, SamAccountName, UserPrincipalName, Status, Message
+```
+
+<div class="console-output" markdown>
+
+```text
+SIMULATION mode: no accounts will be created.
+Processed 7 row(s). Simulated: 5, Skipped: 2
+
+Row SamAccountName       UserPrincipalName                 Status    Message
+--- --------------       -----------------                 ------    -------
+  2 mariajose.fernandez  mariajose.fernandez@acme.example  Simulated Would create in OU=Users,OU=Acme,DC=acme,DC=example
+  3 john.smith           john.smith@acme.example           Simulated Would create in OU=Users,OU=Acme,DC=acme,DC=example
+  4 john.smith2          john.smith2@acme.example          Simulated Would create in OU=Users,OU=Acme,DC=acme,DC=example (name
+                                                                     'john.smith' was taken)
+  5 sean.obrien          sean.obrien@acme.example          Simulated Would create in OU=Users,OU=Acme,DC=acme,DC=example
+  6 alexandria-catherine alexandria-catherine@acme.example Simulated Would create in OU=Users,OU=Acme,DC=acme,DC=example
+  7                                                        Skipped   FirstName is empty
+  8                                                        Skipped   LastName 'T4bles' contains invalid characters
+```
+
+</div>
+
 ## Notes
 
 Requires the ActiveDirectory module and rights to create users for AD mode. Works on Windows PowerShell 5.1 and PowerShell 7+. Related KB: KB-020 New Employee Onboarding.

@@ -31,6 +31,7 @@
   })();
 
   var pages = null; // loaded lazily on first open
+  var sections = []; // section headings, matched only when the query has 3+ characters
   var results = [];
   var active = 0;
   var lastFocus = null;
@@ -57,9 +58,31 @@
       })
       .then(function (data) {
         var seen = {};
+        var pageTitles = {};
         pages = [];
+        sections = [];
         data.docs.forEach(function (d) {
-          if (d.location.indexOf("#") !== -1 || seen[d.location] || d.location === "404.html") return;
+          if (d.location.indexOf("#") === -1) pageTitles[d.location] = (d.title || "").replace(/<[^>]+>/g, "");
+        });
+        data.docs.forEach(function (d) {
+          if (d.location.indexOf("#") !== -1) {
+            var pageLoc = d.location.split("#")[0];
+            var parent = pageTitles[pageLoc] || "";
+            var heading = (d.title || "").replace(/<[^>]+>/g, "");
+            var kbId = /^kb\/kb-(\d{3})-/.exec(pageLoc);
+            var parentId = kbId ? "KB-" + kbId[1] : idOf(parent);
+            if (!heading || !parent) return;
+            sections.push({
+              kind: "section",
+              id: parentId,
+              title: heading + " \u2014 " + parent.replace(/^TCK-\d{3}:\s*/, ""),
+              section: "Sections",
+              href: base + d.location,
+              haystack: (heading + " " + parent + " " + parentId).toLowerCase()
+            });
+            return;
+          }
+          if (seen[d.location] || d.location === "404.html") return;
           seen[d.location] = true;
           var title = (d.title || "").replace(/<[^>]+>/g, "");
           // KB pages: prefix the id parsed from the URL so "KB-010" is searchable.
@@ -122,16 +145,21 @@
   function filter(query) {
     var all = (pages || []).concat(actions());
     var terms = query.toLowerCase().split(/\s+/).filter(Boolean);
+    // Section headings join the results for longer queries, ranked below pages.
+    if (query.trim().length >= 3) all = all.concat(sections);
     if (!terms.length) {
       // Default view: actions first, then pages in site order.
       return actions().concat((pages || []).slice(0, MAX_RESULTS));
     }
-    return all
+    var ranked = all
       .map(function (item) { return { item: item, s: score(item, terms) }; })
       .filter(function (x) { return x.s >= 0; })
       .sort(function (a, b) { return b.s - a.s; })
-      .slice(0, MAX_RESULTS)
       .map(function (x) { return x.item; });
+    // Pages and actions first, then matching section headings as one group.
+    var main = ranked.filter(function (r) { return r.kind !== "section"; });
+    var secs = ranked.filter(function (r) { return r.kind === "section"; });
+    return main.slice(0, MAX_RESULTS).concat(secs.slice(0, Math.max(0, MAX_RESULTS - main.length)));
   }
 
   function render() {
@@ -149,7 +177,7 @@
     }
     var lastGroup = null;
     results.forEach(function (r, i) {
-      var group = r.kind === "action" ? "Actions" : r.section;
+      var group = r.kind === "action" ? "Actions" : r.kind === "section" ? "Sections" : r.section;
       if (group !== lastGroup) {
         var g = document.createElement("li");
         g.className = "cmdk__group";

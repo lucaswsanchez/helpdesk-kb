@@ -5,6 +5,32 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.0] - 2026-11-19
+
+### Added
+
+- Symptom-first overview: a "What is happening?" triage grid (security first) linking each symptom to its KB articles and worked case.
+- Client-side filters: incidents by priority, status and category; KB articles by support level (empty categories hide).
+- Command palette also matches section headings (for example "escalation criteria vpn").
+- Real captured output on the Test-Connectivity, New-BulkADUser and Get-InactiveAccount pages (sample data or the author's network, labelled).
+- Ticket field list with "Handled by" and separate priority and impact/urgency; colored timeline stages.
+
+### Changed
+
+- Calmer visual identity: 16px prose and 14px tables, uppercase only in table headers, fewer boxes, neutral support-level badges, light header in light mode.
+- One search entry point in the header (shows the Ctrl K shortcut); edit button only on KB articles.
+- Portfolio wording moved into a collapsed note on each case; the incidents table shows root causes.
+
+### Fixed
+
+- Code blocks no longer render an empty, focusable link per line.
+- Mermaid diagrams stay legible on phones (scroll region); section tabs stay visible on tablets.
+- Double priority edge on stacked mobile cards; sticky sidebar title overlap.
+
+### Removed
+
+- Content-count tiles and the unsupported "most used procedures" label on the overview.
+
 ## [1.1.1] - 2026-11-18
 
 ### Fixed
@@ -49,6 +75,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Tools & Ticketing guide (Zendesk / Freshdesk mapping), technical decisions, home lab plan.
 - Dockerfile and docker-compose for local preview.
 
+[1.2.0]: https://github.com/lucaswsanchez/helpdesk-kb/releases/tag/v1.2.0
 [1.1.1]: https://github.com/lucaswsanchez/helpdesk-kb/releases/tag/v1.1.1
 [1.1.0]: https://github.com/lucaswsanchez/helpdesk-kb/releases/tag/v1.1.0
 [1.0.0]: https://github.com/lucaswsanchez/helpdesk-kb/releases/tag/v1.0.0

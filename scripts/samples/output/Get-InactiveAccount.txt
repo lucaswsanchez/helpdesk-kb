@@ -1,0 +1,10 @@
+# Command: .\Get-InactiveAccount.ps1 -InputCsv .\samples\ad-users.csv -ReferenceDate 2026-11-17
+# Note: Real run against the sample CSV in this repository.
+4 of 9 account(s) inactive for 90+ days (reference date 2026-11-17).
+
+SamAccountName Department  Enabled LastLogonDate DaysInactive Recommendation
+-------------- ----------  ------- ------------- ------------ --------------
+test.user      IT             True Never                  534 Never signed in: confirm with manager, then disable
+kiosk.lobby    Facilities     True 2025-12-20             332 Confirm with manager/HR, then disable
+old.contractor Engineering    True 2026-05-02             199 Confirm with manager/HR, then disable
+peter.white    Legal          True 2026-08-01             108 Confirm with manager/HR, then disable

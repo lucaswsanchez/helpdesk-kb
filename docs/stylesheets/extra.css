@@ -164,6 +164,11 @@
   color: var(--ops-blue);
   font-weight: 600;
 }
+.md-sidebar .md-nav__title {
+  background: var(--md-default-bg-color);
+  box-shadow: 0 0.4rem 0.4rem -0.2rem var(--md-default-bg-color);
+  z-index: 1;
+}
 .md-nav__title {
   color: var(--ops-muted);
   text-transform: uppercase;
@@ -914,6 +919,9 @@ a.ops-stat:focus-visible {
   .md-typeset table[data-stack] td:first-child::before {
     display: none;
   }
+  .md-typeset table[data-stack]:not([class]) tbody tr td:first-child {
+    box-shadow: none;
+  }
   .md-typeset table[data-stack] td::after {
     content: "";
     display: block;
@@ -988,6 +996,56 @@ a.ops-stat:focus-visible {
 @media (hover: none) and (pointer: coarse) {
   .ops-search-cta kbd,
   .cmdk__footer {
+    display: none;
+  }
+}
+
+/* ---------- Diagrams (enhancements.js wraps each Mermaid diagram) ---------- */
+.diagram-scroll {
+  margin: 1em 0;
+}
+.diagram-scroll:focus-visible {
+  outline: 2px solid var(--ops-blue);
+  outline-offset: 2px;
+}
+@media screen and (max-width: 44.9375em) {
+  /* Keep diagrams at a legible size and let them scroll sideways. */
+  .diagram-scroll {
+    overflow-x: auto;
+    border: 1px solid var(--ops-border);
+    border-radius: 8px;
+    padding: 0.4rem;
+    -webkit-overflow-scrolling: touch;
+  }
+  .diagram-scroll > .mermaid {
+    width: 36rem;
+    max-width: none;
+    margin: 0;
+  }
+  .diagram-scroll::after {
+    content: "Scroll sideways to see the whole diagram";
+    display: block;
+    position: sticky;
+    left: 0;
+    margin-top: 0.3rem;
+    font-size: 0.58rem;
+    color: var(--ops-muted);
+  }
+}
+
+/* ---------- Section tabs on tablets and small laptops ----------
+   Material hides the tabs below 1220px and moves sections into the drawer;
+   keep them visible down to 720px as a horizontally scrollable strip. */
+@media screen and (min-width: 45em) and (max-width: 76.234375em) {
+  .md-tabs {
+    display: block;
+  }
+  .md-tabs__list {
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+  }
+  .md-tabs__list::-webkit-scrollbar {
     display: none;
   }
 }

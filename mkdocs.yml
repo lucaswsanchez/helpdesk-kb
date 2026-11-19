@@ -52,6 +52,7 @@ extra_css:
 extra_javascript:
   - javascripts/command-palette.js
   - javascripts/responsive-tables.js
+  - javascripts/enhancements.js
 
 hooks:
   - hooks/stats.py
@@ -88,7 +89,9 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.highlight:
-      anchor_linenums: true
+      # No per-line anchors: they render as empty links that keyboard users
+      # would have to Tab through line by line.
+      anchor_linenums: false
   - pymdownx.inlinehilite
   - pymdownx.keys
   - pymdownx.emoji:

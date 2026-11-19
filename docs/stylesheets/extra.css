@@ -72,10 +72,11 @@
 
   --md-default-bg-color: var(--ops-bg);
   --md-typeset-a-color: var(--ops-blue);
-  --md-primary-fg-color: #10151c;
-  --md-primary-fg-color--light: #19212b;
-  --md-primary-fg-color--dark: #0c1016;
-  --md-primary-bg-color: #e6edf3;
+  --md-primary-fg-color: #ffffff;
+  --md-primary-fg-color--light: #f5f7fa;
+  --md-primary-fg-color--dark: #e8edf3;
+  --md-primary-bg-color: #1a2330;
+  --md-primary-bg-color--light: rgba(26, 35, 48, 0.7);
   --md-accent-fg-color: var(--ops-blue);
   --md-accent-fg-color--transparent: var(--ops-blue-soft);
   --md-code-bg-color: #eef2f6;
@@ -97,25 +98,25 @@
 
 /* ---------- Base density ---------- */
 .md-typeset {
-  font-size: 0.74rem;
-  line-height: 1.6;
+  font-size: 0.8rem;
+  line-height: 1.65;
 }
 .md-typeset h1 {
-  font-size: 1.55rem;
+  font-size: 1.6rem;
   font-weight: 650;
   letter-spacing: -0.01em;
   color: var(--ops-text);
   margin-bottom: 0.8rem;
 }
 .md-typeset h2 {
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   font-weight: 650;
   margin-top: 1.8rem;
   padding-bottom: 0.3rem;
   border-bottom: 1px solid var(--ops-border);
 }
 .md-typeset h3 {
-  font-size: 0.86rem;
+  font-size: 0.9rem;
   font-weight: 650;
 }
 .md-typeset code,
@@ -147,17 +148,21 @@
 }
 .md-tabs__item--active .md-tabs__link {
   opacity: 1;
-  color: #fff;
+  color: var(--md-primary-bg-color);
   box-shadow: inset 0 -2px 0 var(--ops-blue);
   padding-bottom: 0.3rem;
+}
+.md-search__input::placeholder {
+  color: var(--ops-muted);
+  opacity: 1;
 }
 .md-search__form {
   border: 1px solid var(--ops-border);
   border-radius: 6px;
-  background-color: rgba(255, 255, 255, 0.04);
+  background-color: rgba(127, 140, 160, 0.08);
 }
 .md-nav {
-  font-size: 0.68rem;
+  font-size: 0.7rem;
 }
 .md-nav__link--active,
 .md-nav__item .md-nav__link--active {
@@ -171,9 +176,7 @@
 }
 .md-nav__title {
   color: var(--ops-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  font-size: 0.62rem;
+  font-size: 0.68rem;
 }
 .md-footer-meta {
   border-top: 1px solid var(--ops-border);
@@ -191,7 +194,7 @@
 .md-typeset table:not([class]) {
   display: table;
   width: 100%;
-  font-size: 0.68rem;
+  font-size: 0.7rem;
   border: 1px solid var(--ops-border);
   border-radius: 6px;
   background: var(--ops-panel);
@@ -256,12 +259,11 @@
 
 .md-typeset .admonition,
 .md-typeset details {
-  border-width: 1px;
-  border-left-width: 3px;
-  border-radius: 6px;
+  border-width: 0 0 0 3px;
+  border-radius: 0 6px 6px 0;
   background: var(--ops-panel);
   box-shadow: none;
-  font-size: 0.7rem;
+  font-size: 0.76rem;
 }
 
 .md-typeset :is(.admonition, details):is(.note, .info, .abstract, .question) {
@@ -307,7 +309,7 @@
   border-radius: 6px;
 }
 .md-typeset pre > code {
-  font-size: 0.66rem;
+  font-size: 0.7rem;
   line-height: 1.55;
 }
 
@@ -373,7 +375,7 @@
   align-items: center;
   gap: 0.3em;
   font-family: "JetBrains Mono", ui-monospace, monospace;
-  font-size: 0.6rem;
+  font-size: 0.62rem;
   font-weight: 600;
   line-height: 1.5;
   padding: 0.05rem 0.45rem;
@@ -397,8 +399,12 @@
 .badge--escalated { color: var(--ops-amber); background: var(--ops-amber-soft); }
 .badge--security { color: var(--ops-red); background: var(--ops-red-soft); }
 .badge--request { color: var(--ops-violet); background: var(--ops-violet-soft); }
-.badge--l1 { color: var(--ops-teal); background: var(--ops-teal-soft); }
-.badge--l2 { color: var(--ops-blue); background: var(--ops-blue-soft); }
+.badge--l1,
+.badge--l2 {
+  color: var(--ops-text);
+  background: transparent;
+  border-color: var(--ops-border);
+}
 .badge--plain::before,
 .badge--l1::before,
 .badge--l2::before { display: none; }
@@ -415,8 +421,11 @@
   background: var(--ops-panel);
   border-color: var(--ops-border);
 }
-.kb-badge--l1 { color: var(--ops-teal); border-color: var(--ops-teal); background: var(--ops-teal-soft); }
-.kb-badge--l2 { color: var(--ops-blue); border-color: var(--ops-blue); background: var(--ops-blue-soft); }
+.kb-badge--l1,
+.kb-badge--l2 {
+  color: var(--ops-text);
+  border-color: var(--ops-muted);
+}
 
 /* ---------- Overview page ---------- */
 .ops-header {
@@ -431,9 +440,7 @@
 }
 .ops-eyebrow {
   font-family: "JetBrains Mono", ui-monospace, monospace;
-  font-size: 0.6rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-size: 0.64rem;
   color: var(--ops-teal);
   margin: 0 0 0.2rem;
 }
@@ -561,24 +568,22 @@
 }
 .md-typeset .ops-section > h2 {
   margin-top: 1.2rem;
-  font-size: 0.72rem;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--ops-muted);
+  font-size: 0.95rem;
   border: 0;
   padding: 0;
 }
 .md-typeset .ops-panel h2 {
   margin-top: 0.6rem;
-  font-size: 0.72rem;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--ops-muted);
+  font-size: 0.9rem;
   border: 0;
   padding: 0;
 }
 .md-typeset .ops-panel .md-typeset__scrollwrap {
   margin: 0.4rem 0;
+}
+.md-typeset .ops-panel table:not([class]) th {
+  background: transparent;
+  border-bottom: 1px solid var(--ops-border);
 }
 .md-typeset .ops-panel table:not([class]) {
   border: 0;
@@ -586,8 +591,8 @@
   margin: 0;
 }
 
-/* The overview already links everywhere; hide the "edit this page" button there. */
-.md-content:has(.ops-header) .md-content__button {
+/* "Edit this page" only makes sense on KB articles (docs as code). */
+.md-content:not(:has(.kb-meta)) .md-content__button {
   display: none;
 }
 @media screen and (max-width: 60em) {
@@ -631,9 +636,7 @@
 }
 .md-typeset .timeline > ol > li > strong:first-child {
   font-family: "JetBrains Mono", ui-monospace, monospace;
-  font-size: 0.62rem;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
+  font-size: 0.7rem;
   color: var(--ops-blue);
   margin-right: 0.35rem;
 }
@@ -816,9 +819,8 @@
 }
 .cmdk__group {
   padding: 0.5rem 0.6rem 0.25rem;
-  font-size: 0.58rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-size: 0.62rem;
+  font-weight: 600;
   color: var(--ops-muted);
 }
 .cmdk__item {
@@ -1122,4 +1124,9 @@
   .md-tabs__list::-webkit-scrollbar {
     display: none;
   }
+}
+
+/* Light scheme: the logo is drawn in white for the dark header. */
+[data-md-color-scheme="default"] .md-header__button.md-logo img {
+  filter: brightness(0) saturate(100%) invert(14%) sepia(18%) saturate(1200%) hue-rotate(176deg);
 }

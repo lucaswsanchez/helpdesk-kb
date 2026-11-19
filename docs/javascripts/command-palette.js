@@ -257,18 +257,11 @@
 
   function addTrigger() {
     var isMac = /Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent);
-    var shortcut = isMac ? "⌘K" : "Ctrl K";
-    var header = document.querySelector(".md-header__inner");
-    var anchor = header && header.querySelector(".md-header__source");
-    if (header && !header.querySelector(".cmdk-trigger")) {
-      var btn = document.createElement("button");
-      btn.type = "button";
-      btn.className = "cmdk-trigger";
-      btn.setAttribute("aria-label", "Open command palette (" + shortcut + ")");
-      btn.innerHTML = '<span class="cmdk-trigger__label">Commands</span><kbd>' + shortcut + "</kbd>";
-      btn.addEventListener("click", open);
-      header.insertBefore(btn, anchor || null);
-    }
+    var shortcut = isMac ? "\u2318K" : "Ctrl K";
+    // One search entry point in the header: Material's full-text search field
+    // advertises the palette shortcut instead of a second button.
+    var query = document.querySelector("[data-md-component=search-query]");
+    if (query) query.setAttribute("placeholder", "Search (" + shortcut + ")");
     // In-page buttons (e.g. on the overview) can open the palette too.
     document.querySelectorAll("[data-cmdk-open]").forEach(function (el) {
       el.addEventListener("click", open);

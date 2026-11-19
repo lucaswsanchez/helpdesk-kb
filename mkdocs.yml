@@ -51,6 +51,7 @@ extra_css:
 
 extra_javascript:
   - javascripts/command-palette.js
+  - javascripts/responsive-tables.js
 
 hooks:
   - hooks/stats.py

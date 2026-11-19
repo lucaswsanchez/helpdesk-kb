@@ -235,7 +235,7 @@
       'aria-autocomplete="list" aria-label="Search pages and commands" placeholder="Jump to an article, case, script or command…" autocomplete="off" spellcheck="false">' +
       '<ul class="cmdk__list" id="cmdk-list" role="listbox" aria-label="Results"></ul>' +
       '<div class="cmdk__footer" aria-hidden="true"><span>↑↓ navigate</span><span>↵ open</span><span>esc close</span></div>' +
-      '<div class="md-visually-hidden" role="status" aria-live="polite"></div>' +
+      '<div class="cmdk__sr" role="status" aria-live="polite"></div>' +
       "</div>";
     document.body.appendChild(backdrop);
     input = backdrop.querySelector(".cmdk__input");

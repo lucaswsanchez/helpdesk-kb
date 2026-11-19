@@ -480,11 +480,6 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
-@media screen and (max-width: 30em) {
-  .ops-stats {
-    grid-template-columns: minmax(0, 1fr);
-  }
-}
 .ops-stat {
   background: var(--ops-panel);
   border: 1px solid var(--ops-border);
@@ -765,6 +760,18 @@ a.ops-stat:focus-visible {
   font-size: 0.72rem;
   color: var(--ops-muted);
 }
+/* Screen-reader-only live region for the result count. */
+.cmdk__sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
 .cmdk__footer {
   display: flex;
   gap: 1rem;
@@ -781,4 +788,206 @@ a.ops-stat:focus-visible {
 .ops-search-cta:focus-visible {
   outline: 2px solid var(--ops-blue);
   outline-offset: 2px;
+}
+
+/* Plain-text blocks (response templates, hand-off notes) wrap instead of scrolling. */
+.md-typeset .highlight:not([class*="language-"]) pre > code {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+/* =====================================================================
+   Mobile (phones up to 719px; Material's own breakpoint)
+   ===================================================================== */
+@media screen and (max-width: 44.9375em) {
+  /* Header: the search icon and the overview button already open search, so
+     the command button goes away and the site title gets the room. */
+  .cmdk-trigger {
+    display: none;
+  }
+  .md-header__title {
+    font-size: 0.74rem;
+    margin-left: 0.4rem;
+  }
+  .md-header__title .md-header__topic {
+    letter-spacing: -0.01em;
+  }
+
+  .md-typeset h1 {
+    font-size: 1.3rem;
+  }
+  .md-typeset h2 {
+    font-size: 0.95rem;
+    margin-top: 1.4rem;
+  }
+
+  /* Overview */
+  .ops-eyebrow {
+    font-size: 0.55rem;
+  }
+  .ops-stats {
+    gap: 0.45rem;
+  }
+  .ops-stat {
+    padding: 0.55rem 0.65rem;
+  }
+  .ops-stat__label {
+    font-size: 0.55rem;
+  }
+  .ops-stat__value {
+    font-size: 1.1rem;
+  }
+  .ops-stat__hint {
+    font-size: 0.58rem;
+  }
+  .ops-panel {
+    padding: 0.1rem 0.7rem 0.6rem;
+  }
+
+  /* Data tables become a list of labelled cards (see responsive-tables.js). */
+  .md-typeset table[data-stack] {
+    display: block;
+    border: 0;
+    background: transparent;
+    font-size: 0.7rem;
+  }
+  .md-typeset table[data-stack] thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+  .md-typeset table[data-stack] tbody {
+    display: block;
+  }
+  .md-typeset table[data-stack] tbody tr {
+    display: block;
+    margin: 0 0 0.5rem;
+    padding: 0.45rem 0.7rem 0.4rem;
+    background: var(--ops-panel);
+    border: 1px solid var(--ops-border);
+    border-radius: 8px;
+  }
+  .md-typeset .ops-panel table[data-stack] tbody tr {
+    background: var(--ops-panel-2);
+  }
+  .md-typeset table[data-stack] tbody tr:hover {
+    background: var(--ops-panel);
+  }
+  .md-typeset table[data-stack] tbody tr:has(.badge--p1) {
+    border-left: 3px solid var(--ops-red);
+  }
+  .md-typeset table[data-stack] tbody tr:has(.badge--p2) {
+    border-left: 3px solid var(--ops-amber);
+  }
+  .md-typeset table[data-stack] td {
+    display: block;
+    padding: 0.22rem 0 0.22rem 6.6rem;
+    border: 0;
+    white-space: normal;
+    box-shadow: none;
+  }
+  /* The label floats into the left gutter, so a two-line label makes its row
+     taller instead of overlapping the next one. */
+  .md-typeset table[data-stack] td::before {
+    content: attr(data-label);
+    float: left;
+    width: 6rem;
+    margin: 0.1rem 0 0 -6.6rem;
+    line-height: 1.3;
+    color: var(--ops-muted);
+    font-size: 0.56rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .md-typeset table[data-stack] td:first-child {
+    display: block;
+    padding: 0.1rem 0 0.4rem 0;
+    margin-bottom: 0.2rem;
+    border-bottom: 1px solid var(--ops-border);
+    font-weight: 600;
+    box-shadow: none;
+  }
+  .md-typeset table[data-stack] td:first-child::before {
+    display: none;
+  }
+  .md-typeset table[data-stack] td::after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+  .md-typeset table[data-stack] td:empty {
+    display: none;
+  }
+
+  /* Long state badges ("Security incident -> Resolved") may wrap in cells. */
+  .md-typeset td .badge {
+    white-space: normal;
+  }
+  .md-typeset .ops-panel td:first-child code {
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  /* Compact overview tables keep their grid and drop minor columns. */
+  .md-typeset .compact-table :is(th, td):nth-child(n+4) {
+    display: none;
+  }
+  .md-typeset .compact-table table:not([class]) {
+    table-layout: fixed;
+  }
+  .md-typeset .compact-table table:not(:has(th:nth-child(4))) th:first-child {
+    width: 36%;
+  }
+  .md-typeset .compact-table table:not([class]) :is(th, td) {
+    padding: 0.45em 0.4em;
+  }
+  .md-typeset .compact-table table:not([class]) {
+    font-size: 0.64rem;
+  }
+  .md-typeset .compact-table table:has(th:nth-child(4)) th:first-child {
+    width: 4.4rem;
+  }
+  .md-typeset .compact-table table:has(th:nth-child(4)) th:nth-child(3) {
+    width: 3.2rem;
+  }
+
+  /* Priority matrix stays a grid but tighter. */
+  .md-typeset .matrix-table table:not([class]) td,
+  .md-typeset .matrix-table table:not([class]) th {
+    padding: 0.45em 0.3em;
+  }
+  .md-typeset .matrix-table .badge {
+    font-size: 0.54rem;
+    padding: 0.05rem 0.3rem;
+    white-space: normal;
+  }
+  .md-typeset .matrix-table th:first-child {
+    width: 24%;
+  }
+
+  /* Command palette: full width with comfortable tap targets. */
+  .cmdk-backdrop {
+    padding: 0.6rem;
+  }
+  .cmdk {
+    max-height: calc(100vh - 1.2rem);
+  }
+  .cmdk__item {
+    padding: 0.65rem 0.6rem;
+  }
+  .cmdk__section {
+    display: none;
+  }
+}
+
+/* Keyboard shortcut hints mean nothing on touch screens. */
+@media (hover: none) and (pointer: coarse) {
+  .ops-search-cta kbd,
+  .cmdk__footer {
+    display: none;
+  }
 }

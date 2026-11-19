@@ -14,7 +14,8 @@ from pathlib import Path
 import yaml
 
 PLACEHOLDER = re.compile(r"\{\{\s*stat:([a-z0-9_]+)\s*\}\}")
-PRIORITY = re.compile(r"\*\*Priority\*\*\s*\|.*?\b(P[1-4])\b")
+# Ticket field list: a "Priority" term followed by its definition line.
+PRIORITY = re.compile(r"^Priority\n:\s+.*?\b(P[1-4])\b", re.M)
 
 _stats: dict[str, int] = {}
 

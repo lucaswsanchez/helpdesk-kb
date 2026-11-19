@@ -21,8 +21,20 @@
     });
   }
 
+  /* Resolution timelines: tag each step with its stage name (the bold word
+     that starts it) so escalations, containment and follow-ups get their own
+     color. The stage word stays visible, so meaning never relies on color. */
+  function tagTimelineStages() {
+    document.querySelectorAll(".md-typeset .timeline > ol > li").forEach(function (li) {
+      var label = li.querySelector("strong");
+      if (!label || li.dataset.stage) return;
+      li.dataset.stage = label.textContent.trim().toLowerCase().replace(/[^a-z]+/g, "-");
+    });
+  }
+
   function run() {
     wrapDiagrams();
+    tagTimelineStages();
     // Material renders Mermaid asynchronously and replaces the original
     // <pre class="mermaid"> with a new element, so wrap again when it appears.
     var content = document.querySelector(".md-content");

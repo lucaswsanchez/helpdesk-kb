@@ -5,16 +5,35 @@ title: "TCK-006: Laptop Extremely Slow"
 # TCK-006: Laptop Extremely Slow
 
 !!! practice "Practice scenario"
-    This is a simulated ticket written to show troubleshooting reasoning. Names, systems and data are fictional.
+    Simulated case for training and portfolio purposes. Names, systems and data are fictional.
 
-| Field | Value |
-|---|---|
-| **Type** | Incident |
-| **Category** | Hardware & Printing > Performance |
-| **Priority** | <span class="badge badge--p4">P4</span> — Impact: Low (one user) · Urgency: Medium (work is slow but possible) |
-| **Status** | <span class="badge badge--resolved">Resolved</span> |
-| **Channel** | Email |
-| **Related KB** | [KB-013 Computer Is Running Slow](../kb/kb-013-slow-computer.md) |
+<div class="ticket-meta" markdown>
+
+Type
+:   Incident
+
+Category
+:   Hardware & Printing > Performance
+
+Priority
+:   <span class="badge badge--p4">P4</span>
+
+Impact / urgency
+:   Impact: Low (one user) · Urgency: Medium (work is slow but possible)
+
+Status
+:   <span class="badge badge--resolved">Resolved</span>
+
+Handled by
+:   L1 Service Desk
+
+Channel
+:   Email
+
+Related KB
+:   [KB-013 Computer Is Running Slow](../kb/kb-013-slow-computer.md)
+
+</div>
 
 ## Resolution timeline
 
@@ -75,6 +94,5 @@ title: "TCK-006: Laptop Extremely Slow"
 - **Root cause:** high uptime with a pending update, nearly full disk, heavy memory use.
 - **Prevention:** suggested enabling **Storage Sense** and an Intune restart reminder policy for devices with uptime over 7 days.
 
-## Skills demonstrated
-
-Evidence-based diagnosis with before/after metrics, avoiding an unnecessary hardware purchase, safe cleanup with `-WhatIf`, user habit coaching.
+??? abstract "Portfolio note: skills demonstrated"
+    Evidence-based diagnosis with before/after metrics, avoiding an unnecessary hardware purchase, safe cleanup with `-WhatIf`, user habit coaching.

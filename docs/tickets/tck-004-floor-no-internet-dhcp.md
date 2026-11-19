@@ -5,16 +5,35 @@ title: "TCK-004: Several Users on One Floor Have No Network"
 # TCK-004: Several Users on One Floor Have No Network
 
 !!! practice "Practice scenario"
-    This is a simulated ticket written to show troubleshooting reasoning. Names, systems and data are fictional.
+    Simulated case for training and portfolio purposes. Names, systems and data are fictional.
 
-| Field | Value |
-|---|---|
-| **Type** | Incident (parent ticket, 6 child tickets linked) |
-| **Category** | Network > Wi-Fi / DHCP |
-| **Priority** | <span class="badge badge--p2">P2</span> — Impact: Medium (a floor, ~40 users) · Urgency: High (no workaround for laptops arriving now) |
-| **Status** | <span class="badge badge--escalated">Escalated &rarr; Resolved</span> |
-| **Channel** | Phone + chat (multiple users within 15 minutes) |
-| **Related KB** | [KB-010 Wi-Fi Connected but No Internet](../kb/kb-010-wifi-dns-troubleshooting.md) |
+<div class="ticket-meta" markdown>
+
+Type
+:   Incident (parent ticket, 6 child tickets linked)
+
+Category
+:   Network > Wi-Fi / DHCP
+
+Priority
+:   <span class="badge badge--p2">P2</span>
+
+Impact / urgency
+:   Impact: Medium (a floor, ~40 users) · Urgency: High (no workaround for laptops arriving now)
+
+Status
+:   <span class="badge badge--escalated">Escalated &rarr; Resolved</span>
+
+Handled by
+:   L1 Service Desk &rarr; L2 Network
+
+Channel
+:   Phone + chat (multiple users within 15 minutes)
+
+Related KB
+:   [KB-010 Wi-Fi Connected but No Internet](../kb/kb-010-wifi-dns-troubleshooting.md)
+
+</div>
 
 ## Resolution timeline
 
@@ -71,6 +90,5 @@ Ask:       Check scope utilization and lease duration on the DHCP server.
 - **Root cause:** DHCP scope exhaustion (long lease time + personal devices on the corporate SSID).
 - **Prevention:** a problem record was opened for L2 to add scope-utilization monitoring (alert at 85%) and enforce the guest SSID for personal devices.
 
-## Skills demonstrated
-
-Spotting a major incident from multiple tickets, parent/child ticket linking, re-prioritization, APIPA interpretation, comparison against a working device, high-quality escalation note.
+??? abstract "Portfolio note: skills demonstrated"
+    Spotting a major incident from multiple tickets, parent/child ticket linking, re-prioritization, APIPA interpretation, comparison against a working device, high-quality escalation note.

@@ -8,73 +8,95 @@ hide:
 <div class="ops-header">
   <div class="ops-header__text">
     <p class="ops-eyebrow">Acme Corp &middot; IT Service Desk</p>
-    <h1>Service Desk Overview</h1>
-    <p>Knowledge base, incident procedures and technician toolkit in one workspace. Start typing what is happening, for example <em>"outlook not syncing"</em> or <em>KB-010</em>.</p>
+    <h1>What is happening?</h1>
+    <p>Start from the symptom. Each entry points to the procedures the Service Desk follows, from the first check to the escalation criteria.</p>
   </div>
   <button type="button" class="ops-search-cta" data-cmdk-open aria-label="Open command palette">
-    <span>Search articles, cases, scripts&hellip;</span> <kbd>Ctrl K</kbd>
+    <span>Jump to an article or case&hellip;</span> <kbd>Ctrl K</kbd>
   </button>
 </div>
 
-<div class="ops-stats" aria-label="Portal contents (computed from the repository at build time)">
-  <a class="ops-stat" href="kb/">
-    <span class="ops-stat__label">KB articles</span>
-    <span class="ops-stat__value">{{ stat:kb_total }}</span>
-    <span class="ops-stat__hint">{{ stat:kb_l1 }} L1 &middot; {{ stat:kb_l2 }} L2 &middot; {{ stat:kb_categories }} categories</span>
-  </a>
-  <a class="ops-stat" href="tickets/">
-    <span class="ops-stat__label">Incident case studies</span>
-    <span class="ops-stat__value">{{ stat:tickets_total }}</span>
-    <span class="ops-stat__hint">{{ stat:tickets_p2 }} P2 &middot; {{ stat:tickets_p3 }} P3 &middot; {{ stat:tickets_p4 }} P4 &middot; practice</span>
-  </a>
-  <a class="ops-stat" href="scripts/">
-    <span class="ops-stat__label">Diagnostic scripts</span>
-    <span class="ops-stat__value">{{ stat:scripts_total }}</span>
-    <span class="ops-stat__hint">PowerShell 5.1 &amp; 7 &middot; Pester-tested</span>
-  </a>
-  <a class="ops-stat" href="processes/priority-matrix/">
-    <span class="ops-stat__label">Process pages</span>
-    <span class="ops-stat__value">{{ stat:process_pages }}</span>
-    <span class="ops-stat__hint">ITIL 4 &middot; priority &amp; SLA</span>
-  </a>
+<div class="triage" markdown>
+
+<section class="triage__item triage__item--security" markdown>
+
+### :material-shield-alert-outline: Security: act now
+
+Clicked a suspicious link, entered a password, lost a device.
+
+- [KB-018 Suspicious email or phishing click](kb/kb-018-phishing-suspicious-email.md)
+- [KB-019 Lost or stolen laptop or phone](kb/kb-019-lost-stolen-device.md)
+- [TCK-007 Worked case: credentials entered](tickets/tck-007-phishing-credentials-entered.md)
+
+</section>
+
+<section class="triage__item" markdown>
+
+### :material-account-lock-outline: Can't sign in
+
+Forgotten password, MFA prompts, locked account.
+
+- [KB-001 Reset a Microsoft 365 password](kb/kb-001-reset-m365-password.md)
+- [KB-002 Set up or reset MFA](kb/kb-002-mfa-setup-and-reset.md)
+- [KB-003 Active Directory account locked out](kb/kb-003-ad-account-locked-out.md)
+
+</section>
+
+<section class="triage__item" markdown>
+
+### :material-lan-disconnect: No network or VPN
+
+"Connected, no internet", VPN errors, missing drives.
+
+- [KB-010 Wi-Fi / DNS troubleshooting](kb/kb-010-wifi-dns-troubleshooting.md)
+- [KB-009 VPN does not connect](kb/kb-009-vpn-not-connecting.md)
+- [Triage path for "nothing works"](infrastructure.md#triage-path-for-nothing-works)
+
+</section>
+
+<section class="triage__item" markdown>
+
+### :material-email-alert-outline: Email, Teams, OneDrive
+
+Mail not syncing, no audio or camera, files not uploading.
+
+- [KB-005 Outlook is not syncing](kb/kb-005-outlook-not-syncing.md)
+- [KB-006 Teams has no audio or camera](kb/kb-006-teams-audio-camera.md)
+- [KB-007 OneDrive is not syncing](kb/kb-007-onedrive-not-syncing.md)
+
+</section>
+
+<section class="triage__item" markdown>
+
+### :material-laptop: Device or printer
+
+Slow computer, printer offline, BitLocker screen, dock issues.
+
+- [KB-013 Computer is running slow](kb/kb-013-slow-computer.md)
+- [KB-012 Printer offline or jobs stuck](kb/kb-012-printer-offline.md)
+- [KB-014 BitLocker recovery key](kb/kb-014-bitlocker-recovery.md)
+
+</section>
+
+<section class="triage__item triage__item--request" markdown>
+
+### :material-account-plus-outline: Request: access, software, people
+
+New hire, leaver, shared folder, approved software.
+
+- [KB-020 New employee onboarding](kb/kb-020-employee-onboarding.md)
+- [KB-004 Access to a shared folder](kb/kb-004-shared-folder-permissions.md)
+- [KB-016 Install approved software](kb/kb-016-install-approved-software.md)
+
+</section>
+
 </div>
 
 <div class="ops-columns" markdown>
 
 <div class="ops-panel" markdown>
 
-## Most used procedures
-
-<div class="compact-table" markdown>
-
-| ID | Procedure | Level | Est. |
-|---|---|---|---|
-| KB-001 | [Reset a forgotten Microsoft 365 password](kb/kb-001-reset-m365-password.md) | <span class="badge badge--l1">L1</span> | 10 min |
-| KB-003 | [Active Directory account locked out](kb/kb-003-ad-account-locked-out.md) | <span class="badge badge--l1">L1</span> | 10 min |
-| KB-005 | [Outlook is not syncing email](kb/kb-005-outlook-not-syncing.md) | <span class="badge badge--l1">L1</span> | 20 min |
-| KB-009 | [VPN does not connect](kb/kb-009-vpn-not-connecting.md) | <span class="badge badge--l1">L1</span> | 20 min |
-| KB-010 | [Wi-Fi connected but no internet (DNS)](kb/kb-010-wifi-dns-troubleshooting.md) | <span class="badge badge--l1">L1</span> | 15 min |
-| KB-012 | [Printer offline or jobs stuck](kb/kb-012-printer-offline.md) | <span class="badge badge--l1">L1</span> | 15 min |
-| KB-018 | [Report a suspicious email (phishing)](kb/kb-018-phishing-suspicious-email.md) | <span class="badge badge--l1">L1</span> | 10 min |
-| KB-020 | [New employee onboarding](kb/kb-020-employee-onboarding.md) | <span class="badge badge--l2">L2</span> | 60 min |
-
-</div>
-
-[All articles by category &rarr;](kb/index.md){ .ops-panel__link }
-
-## Contact
-
-| Channel | Use for |
-|---|---|
-| Portal (this site) | Self-service, 24/7 |
-| `servicedesk@acme.example` | P3 / P4 requests, Mon–Fri 08–18 |
-| Phone ext. `4357` | P1 / P2 when you cannot work; on-call for P1 |
-
-</div>
-
-<div class="ops-panel" markdown>
-
-## Priority &amp; SLA targets
+## Priority and response targets
 
 <div class="compact-table" markdown>
 
@@ -87,66 +109,22 @@ hide:
 
 </div>
 
-[How priority is calculated &rarr;](processes/priority-matrix.md){ .ops-panel__link }
+[How priority is calculated &rarr;](processes/priority-matrix.md){ .ops-panel__link } &nbsp; [Escalation flow &rarr;](processes/escalation.md){ .ops-panel__link }
 
-## Case states
+</div>
 
-| State | Meaning |
+<div class="ops-panel" markdown>
+
+## Contact the Service Desk
+
+| Channel | Use for |
 |---|---|
-| <span class="badge badge--resolved">Resolved</span> | Fix applied and confirmed by the user |
-| <span class="badge badge--escalated">Escalated</span> | Handed to L2/L3 or a vendor with a hand-off note |
-| <span class="badge badge--security">Security</span> | Security incident, containment first |
-| <span class="badge badge--request">Fulfilled</span> | Service request completed with approval |
+| Portal (this site) | Self-service, 24/7 |
+| `servicedesk@acme.example` | P3 / P4 requests, Mon–Fri 08–18 |
+| Phone ext. `4357` | P1 / P2 when you cannot work; on-call for P1 |
 
 </div>
 
 </div>
 
-<div class="ops-section" markdown>
-
-## Workspaces
-
-<div class="grid cards" markdown>
-
--   :material-alert-octagon-outline: **Incidents**
-
-    Worked cases with classification, diagnosis, escalation and a resolution timeline.
-
-    [Open incidents &rarr;](tickets/index.md)
-
--   :material-book-open-variant: **Knowledge Base**
-
-    Step-by-step fixes with symptoms, cause and escalation criteria.
-
-    [Browse the KB &rarr;](kb/index.md)
-
--   :material-console: **Diagnostics**
-
-    PowerShell toolkit: system report, connectivity, cleanup, AD and print spooler.
-
-    [Open the toolkit &rarr;](scripts/index.md)
-
--   :material-timer-sand: **SLA & Processes**
-
-    Incident vs. request, priority matrix, escalation flow and templates.
-
-    [Open processes &rarr;](processes/index.md)
-
--   :material-lan: **Infrastructure & Lab**
-
-    Service dependency map, impact reference and the planned Windows Server lab.
-
-    [Open the map &rarr;](infrastructure.md)
-
--   :material-ticket-outline: **Ticketing tools**
-
-    How this KB, priorities and SLAs map to Zendesk and Freshdesk.
-
-    [Read the guide &rarr;](tools-ticketing.md)
-
-</div>
-
-</div>
-
-!!! info "About this portal"
-    Acme Corp is a **fictional company** and this is a portfolio project. Counts above are computed from the repository when the site is built; there is no live monitoring or ticket queue behind this page. Incident cases are **practice scenarios**.
+<p class="ops-inventory">Portal contents: {{ stat:kb_total }} KB articles ({{ stat:kb_l1 }} L1, {{ stat:kb_l2 }} L2) &middot; {{ stat:tickets_total }} incident case studies &middot; {{ stat:scripts_total }} PowerShell scripts &middot; {{ stat:process_pages }} process pages. Acme Corp is fictional; nothing on this page is live monitoring.</p>

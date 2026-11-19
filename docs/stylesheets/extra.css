@@ -474,51 +474,69 @@
   }
 }
 
-.ops-stats {
+/* Symptom-based triage grid (overview) */
+.triage {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.6rem;
-  margin: 0 0 0.6rem;
+  margin: 0 0 1rem;
 }
-@media screen and (max-width: 60em) {
-  .ops-stats {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-.ops-stat {
+.md-typeset .triage__item {
   background: var(--ops-panel);
   border: 1px solid var(--ops-border);
   border-radius: 8px;
-  padding: 0.65rem 0.8rem;
-  text-decoration: none;
-  color: inherit;
-  display: block;
+  padding: 0.7rem 0.9rem 0.6rem;
 }
-.md-typeset a.ops-stat {
-  color: inherit;
+.md-typeset .triage__item h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0 0 0.25rem;
+  font-size: 0.85rem;
 }
-a.ops-stat:hover,
-a.ops-stat:focus-visible {
-  border-color: var(--ops-blue);
+.md-typeset .triage__item h3 .twemoji {
+  color: var(--ops-blue);
 }
-.ops-stat__label {
-  display: block;
-  font-size: 0.6rem;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
+.md-typeset .triage__item > p {
+  margin: 0 0 0.45rem;
   color: var(--ops-muted);
+  font-size: 0.68rem;
 }
-.ops-stat__value {
-  display: block;
-  font-family: "JetBrains Mono", ui-monospace, monospace;
-  font-size: 1.35rem;
-  font-weight: 600;
-  color: var(--ops-text);
-  line-height: 1.3;
+.md-typeset .triage__item ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
-.ops-stat__hint {
-  display: block;
-  font-size: 0.62rem;
+.md-typeset .triage__item ul li {
+  margin: 0;
+  padding: 0.28rem 0;
+  border-top: 1px solid var(--ops-border);
+  font-size: 0.7rem;
+}
+.md-typeset .triage__item--security {
+  border-color: var(--ops-red);
+  box-shadow: inset 3px 0 0 var(--ops-red);
+}
+.md-typeset .triage__item--security h3,
+.md-typeset .triage__item--security h3 .twemoji {
+  color: var(--ops-red);
+}
+.md-typeset .triage__item--request h3 .twemoji {
+  color: var(--ops-violet);
+}
+@media screen and (max-width: 76.1875em) {
+  .triage {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media screen and (max-width: 44.9375em) {
+  .triage {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+.md-typeset .ops-inventory {
+  margin-top: 1.2rem;
+  font-size: 0.64rem;
   color: var(--ops-muted);
 }
 
@@ -621,6 +639,77 @@ a.ops-stat:focus-visible {
 }
 .md-typeset .timeline > ol > li:last-child > strong:first-child {
   color: var(--ops-teal);
+}
+
+/* Stage colors (data-stage set by enhancements.js). */
+.md-typeset .timeline > ol > li[data-stage="escalated"]::before {
+  border-color: var(--ops-amber);
+}
+.md-typeset .timeline > ol > li[data-stage="escalated"] > strong:first-child {
+  color: var(--ops-amber);
+}
+.md-typeset .timeline > ol > li[data-stage="contained"]::before {
+  border-color: var(--ops-red);
+}
+.md-typeset .timeline > ol > li[data-stage="contained"] > strong:first-child {
+  color: var(--ops-red);
+}
+.md-typeset .timeline > ol > li:is([data-stage="resolved"], [data-stage="fulfilled"])::before {
+  background: var(--ops-teal);
+  border-color: var(--ops-teal);
+}
+.md-typeset .timeline > ol > li:is([data-stage="resolved"], [data-stage="fulfilled"]) > strong:first-child {
+  color: var(--ops-teal);
+}
+.md-typeset .timeline > ol > li:is([data-stage="follow-up"], [data-stage="closed"])::before {
+  background: var(--ops-bg);
+  border-color: var(--ops-muted);
+}
+.md-typeset .timeline > ol > li:is([data-stage="follow-up"], [data-stage="closed"]) > strong:first-child {
+  color: var(--ops-muted);
+}
+
+/* ---------- Ticket fields (definition list) ---------- */
+.md-typeset .ticket-meta dl {
+  display: grid;
+  grid-template-columns: 8.5rem minmax(0, 1fr);
+  margin: 0 0 1.4rem;
+  border-top: 1px solid var(--ops-border);
+  border-bottom: 1px solid var(--ops-border);
+}
+.md-typeset .ticket-meta dt,
+.md-typeset .ticket-meta dd {
+  margin: 0;
+  padding: 0.45rem 0;
+  border-top: 1px solid var(--ops-border);
+}
+.md-typeset .ticket-meta dt:first-of-type,
+.md-typeset .ticket-meta dt:first-of-type + dd {
+  border-top: 0;
+}
+.md-typeset .ticket-meta dt {
+  color: var(--ops-muted);
+  font-weight: 600;
+  font-size: 0.68rem;
+}
+.md-typeset .ticket-meta dd {
+  padding-left: 0.6rem;
+}
+.md-typeset .ticket-meta dd p {
+  margin: 0;
+}
+@media screen and (max-width: 44.9375em) {
+  .md-typeset .ticket-meta dl {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .md-typeset .ticket-meta dt {
+    padding-bottom: 0;
+  }
+  .md-typeset .ticket-meta dd {
+    padding-left: 0;
+    padding-top: 0.15rem;
+    border-top: 0;
+  }
 }
 
 /* ---------- Practice scenario admonition ---------- */
@@ -829,21 +918,6 @@ a.ops-stat:focus-visible {
   /* Overview */
   .ops-eyebrow {
     font-size: 0.55rem;
-  }
-  .ops-stats {
-    gap: 0.45rem;
-  }
-  .ops-stat {
-    padding: 0.55rem 0.65rem;
-  }
-  .ops-stat__label {
-    font-size: 0.55rem;
-  }
-  .ops-stat__value {
-    font-size: 1.1rem;
-  }
-  .ops-stat__hint {
-    font-size: 0.58rem;
   }
   .ops-panel {
     padding: 0.1rem 0.7rem 0.6rem;

@@ -5,16 +5,35 @@ title: "TCK-002: Outlook Not Receiving New Email"
 # TCK-002: Outlook Not Receiving New Email
 
 !!! practice "Practice scenario"
-    This is a simulated ticket written to show troubleshooting reasoning. Names, systems and data are fictional.
+    Simulated case for training and portfolio purposes. Names, systems and data are fictional.
 
-| Field | Value |
-|---|---|
-| **Type** | Incident |
-| **Category** | Microsoft 365 > Outlook |
-| **Priority** | <span class="badge badge--p4">P4</span> — Impact: Low (one user) · Urgency: Medium (workaround: Outlook on the web) |
-| **Status** | <span class="badge badge--resolved">Resolved</span> |
-| **Channel** | Self-service portal |
-| **Related KB** | [KB-005 Outlook Is Not Syncing Email](../kb/kb-005-outlook-not-syncing.md) |
+<div class="ticket-meta" markdown>
+
+Type
+:   Incident
+
+Category
+:   Microsoft 365 > Outlook
+
+Priority
+:   <span class="badge badge--p4">P4</span>
+
+Impact / urgency
+:   Impact: Low (one user) · Urgency: Medium (workaround: Outlook on the web)
+
+Status
+:   <span class="badge badge--resolved">Resolved</span>
+
+Handled by
+:   L1 Service Desk
+
+Channel
+:   Self-service portal
+
+Related KB
+:   [KB-005 Outlook Is Not Syncing Email](../kb/kb-005-outlook-not-syncing.md)
+
+</div>
 
 ## Resolution timeline
 
@@ -58,6 +77,5 @@ title: "TCK-002: Outlook Not Receiving New Email"
 - **Root cause:** OST corruption after an unexpected shutdown.
 - **Prevention:** reminded the user about battery warnings; no further action needed.
 
-## Skills demonstrated
-
-Isolating client vs. server (OWA comparison), elimination order from least to most disruptive, Outlook cache rebuild, clear non-technical explanation.
+??? abstract "Portfolio note: skills demonstrated"
+    Isolating client vs. server (OWA comparison), elimination order from least to most disruptive, Outlook cache rebuild, clear non-technical explanation.

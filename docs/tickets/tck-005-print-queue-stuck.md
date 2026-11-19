@@ -5,16 +5,35 @@ title: "TCK-005: Print Jobs Stuck in the Queue"
 # TCK-005: Print Jobs Stuck in the Queue
 
 !!! practice "Practice scenario"
-    This is a simulated ticket written to show troubleshooting reasoning. Names, systems and data are fictional.
+    Simulated case for training and portfolio purposes. Names, systems and data are fictional.
 
-| Field | Value |
-|---|---|
-| **Type** | Incident |
-| **Category** | Hardware & Printing > Print queue |
-| **Priority** | <span class="badge badge--p4">P4</span> — Impact: Low (one user) · Urgency: Low (another printer nearby works) |
-| **Status** | <span class="badge badge--resolved">Resolved</span> |
-| **Channel** | Walk-up |
-| **Related KB** | [KB-012 Printer Shows Offline or Jobs Are Stuck](../kb/kb-012-printer-offline.md) |
+<div class="ticket-meta" markdown>
+
+Type
+:   Incident
+
+Category
+:   Hardware & Printing > Print queue
+
+Priority
+:   <span class="badge badge--p4">P4</span>
+
+Impact / urgency
+:   Impact: Low (one user) · Urgency: Low (another printer nearby works)
+
+Status
+:   <span class="badge badge--resolved">Resolved</span>
+
+Handled by
+:   L1 Service Desk
+
+Channel
+:   Walk-up
+
+Related KB
+:   [KB-012 Printer Shows Offline or Jobs Are Stuck](../kb/kb-012-printer-offline.md)
+
+</div>
 
 ## Resolution timeline
 
@@ -65,6 +84,5 @@ title: "TCK-005: Print Jobs Stuck in the Queue"
 - **Root cause:** corrupted spool job from a large PDF.
 - **Prevention:** none required for a single occurrence; if it repeats with the same PDF, update the printer driver.
 
-## Skills demonstrated
-
-Isolating device vs. client with a quick comparison, safe use of a script with `-WhatIf` first, clear note about what the user must redo.
+??? abstract "Portfolio note: skills demonstrated"
+    Isolating device vs. client with a quick comparison, safe use of a script with `-WhatIf` first, clear note about what the user must redo.

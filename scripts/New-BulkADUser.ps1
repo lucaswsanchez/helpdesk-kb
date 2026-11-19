@@ -7,8 +7,10 @@
     optional Manager, Office) and, for each valid row:
 
       - builds a SamAccountName as firstname.lastname (accents removed,
-        lowercase, max 20 characters) and makes it unique, adding a number
-        if the name is already taken in the CSV or in Active Directory
+        lowercase, max 20 characters; long names shorten the first name
+        first, so the last name always keeps at least 9 characters) and
+        makes it unique, adding a number if the name is already taken in
+        the CSV or in Active Directory
       - builds the UPN and display name
       - creates the account (disabled by default until the start date)
         with a random password and "change password at next logon"
@@ -92,8 +94,10 @@ function ConvertTo-SamAccountName {
     .SYNOPSIS
         Builds a valid sAMAccountName (firstname.lastname) from a person's name.
     .DESCRIPTION
-        Removes accents, spaces and symbols, lowercases, and truncates to 20
-        characters, the sAMAccountName limit.
+        Removes accents, spaces and symbols, lowercases, and fits the result
+        into 20 characters, the sAMAccountName limit, by shortening the first
+        name first: the last name keeps at least 9 characters (all of it if
+        shorter).
     #>
     [CmdletBinding()]
     [OutputType([string])]
@@ -108,7 +112,7 @@ function ConvertTo-SamAccountName {
         $chars = $normalized.ToCharArray() | Where-Object {
             [Globalization.CharUnicodeInfo]::GetUnicodeCategory($_) -ne [Globalization.UnicodeCategory]::NonSpacingMark
         }
-        (-join $chars).ToLowerInvariant() -replace '[^a-z0-9\-]', ''
+        ((-join $chars).ToLowerInvariant() -replace '[^a-z0-9\-]', '').Trim('-')
     }
 
     $first = & $clean $FirstName
@@ -116,15 +120,21 @@ function ConvertTo-SamAccountName {
     if (-not $first -or -not $last) {
         throw "Cannot build an account name from '$FirstName $LastName'."
     }
-    $sam = "$first.$last"
-    if ($sam.Length -gt 20) { $sam = $sam.Substring(0, 20).TrimEnd('.', '-') }
-    $sam
+    # 20 characters minus the dot. When the name does not fit, shorten the
+    # first name first so the last name always keeps at least 9 characters.
+    $budget = 19
+    if ($first.Length + $last.Length -gt $budget) {
+        $minLast = [math]::Min($last.Length, 9)
+        $first = $first.Substring(0, [math]::Min($first.Length, $budget - $minLast)).TrimEnd('-')
+        $last = $last.Substring(0, [math]::Min($last.Length, $budget - $first.Length)).TrimEnd('-')
+    }
+    "$first.$last"
 }
 
 function Get-UniqueSamAccountName {
     <#
     .SYNOPSIS
-        Appends a number to a SamAccountName until it is not in the taken set (respecting the 20-char limit).
+        Appends a number to a SamAccountName until it is not in the taken set (respecting the 20-char limit by shortening the first name).
     #>
     [CmdletBinding()]
     [OutputType([string])]
@@ -138,7 +148,16 @@ function Get-UniqueSamAccountName {
     while ($Taken.Contains($candidate) -or (& $ExistsInDirectory $candidate)) {
         $i++
         $suffix = [string]$i
-        $candidate = $BaseName.Substring(0, [math]::Min($BaseName.Length, 20 - $suffix.Length)) + $suffix
+        $over = $BaseName.Length + $suffix.Length - 20
+        $dot = $BaseName.IndexOf('.')
+        if ($over -le 0) {
+            $candidate = $BaseName + $suffix
+        } elseif ($dot -gt $over) {
+            # Make room by shortening the first name, so the surname stays intact.
+            $candidate = $BaseName.Substring(0, $dot - $over).TrimEnd('-') + $BaseName.Substring($dot) + $suffix
+        } else {
+            $candidate = $BaseName.Substring(0, 20 - $suffix.Length).TrimEnd('.', '-') + $suffix
+        }
     }
     $candidate
 }

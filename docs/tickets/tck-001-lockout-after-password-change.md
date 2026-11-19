@@ -5,16 +5,35 @@ title: "TCK-001: Account Keeps Locking After a Password Change"
 # TCK-001: Account Keeps Locking After a Password Change
 
 !!! practice "Practice scenario"
-    This is a simulated ticket written to show troubleshooting reasoning. Names, systems and data are fictional.
+    Simulated case for training and portfolio purposes. Names, systems and data are fictional.
 
-| Field | Value |
-|---|---|
-| **Type** | Incident |
-| **Category** | Accounts & Identity > Account lockout |
-| **Priority** | <span class="badge badge--p3">P3</span> — Impact: Low (one user) · Urgency: High (cannot sign in) |
-| **Status** | <span class="badge badge--resolved">Resolved</span> |
-| **Channel** | Phone |
-| **Related KB** | [KB-003 Active Directory Account Locked Out](../kb/kb-003-ad-account-locked-out.md) |
+<div class="ticket-meta" markdown>
+
+Type
+:   Incident
+
+Category
+:   Accounts & Identity > Account lockout
+
+Priority
+:   <span class="badge badge--p3">P3</span>
+
+Impact / urgency
+:   Impact: Low (one user) · Urgency: High (cannot sign in)
+
+Status
+:   <span class="badge badge--resolved">Resolved</span>
+
+Handled by
+:   L1 Service Desk (L2 Identity checked the domain controller log)
+
+Channel
+:   Phone
+
+Related KB
+:   [KB-003 Active Directory Account Locked Out](../kb/kb-003-ad-account-locked-out.md)
+
+</div>
 
 ## Resolution timeline
 
@@ -64,6 +83,5 @@ title: "TCK-001: Account Keeps Locking After a Password Change"
 - **Root cause:** stale credentials on a mobile mail client after a password change.
 - **Prevention:** proposed a KB note in the password change notification email: *"Update your password on your phone and other devices."* Logged as a suggestion to move users to Outlook mobile with app protection policies.
 
-## Skills demonstrated
-
-Identity verification, Active Directory PowerShell, pattern-based hypothesis (failures while idle), Event ID 4740, user education.
+??? abstract "Portfolio note: skills demonstrated"
+    Identity verification, Active Directory PowerShell, pattern-based hypothesis (failures while idle), Event ID 4740, user education.

@@ -5,16 +5,35 @@ title: "TCK-007: User Entered Password on a Phishing Page"
 # TCK-007: User Entered Password on a Phishing Page
 
 !!! practice "Practice scenario"
-    This is a simulated ticket written to show troubleshooting reasoning. Names, systems and data are fictional.
+    Simulated case for training and portfolio purposes. Names, systems and data are fictional.
 
-| Field | Value |
-|---|---|
-| **Type** | Security incident |
-| **Category** | Security > Phishing |
-| **Priority** | <span class="badge badge--p2">P2</span> — Impact: Low→Medium (one account, but access to shared finance mailbox) · Urgency: High (active credential compromise) |
-| **Status** | <span class="badge badge--security">Security incident &rarr; Resolved</span> |
-| **Channel** | Phone |
-| **Related KB** | [KB-018 Report a Suspicious Email (Phishing)](../kb/kb-018-phishing-suspicious-email.md), [KB-001](../kb/kb-001-reset-m365-password.md), [KB-002](../kb/kb-002-mfa-setup-and-reset.md) |
+<div class="ticket-meta" markdown>
+
+Type
+:   Security incident
+
+Category
+:   Security > Phishing
+
+Priority
+:   <span class="badge badge--p2">P2</span>
+
+Impact / urgency
+:   Impact: Low→Medium (one account, but access to shared finance mailbox) · Urgency: High (active credential compromise)
+
+Status
+:   <span class="badge badge--security">Security incident &rarr; Resolved</span>
+
+Handled by
+:   L1 Service Desk &rarr; Security (Finance manager notified)
+
+Channel
+:   Phone
+
+Related KB
+:   [KB-018 Report a Suspicious Email (Phishing)](../kb/kb-018-phishing-suspicious-email.md), [KB-001](../kb/kb-001-reset-m365-password.md), [KB-002](../kb/kb-002-mfa-setup-and-reset.md)
+
+</div>
 
 ## Resolution timeline
 
@@ -68,6 +87,5 @@ Escalated to **Security** immediately as a P2 with: the original email (forwarde
 - **Root cause:** credential phishing with MFA fatigue/approval.
 - **Prevention:** recommended enabling **number matching** and **phishing-resistant MFA** for Finance, plus a short awareness session. A problem record was created to alert on new inbox forwarding/hiding rules.
 
-## Skills demonstrated
-
-Security incident triage, containment order (password → sessions → MFA methods → mailbox rules), evidence collection, blameless and reassuring communication.
+??? abstract "Portfolio note: skills demonstrated"
+    Security incident triage, containment order (password → sessions → MFA methods → mailbox rules), evidence collection, blameless and reassuring communication.

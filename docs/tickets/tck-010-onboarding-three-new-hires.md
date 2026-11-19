@@ -5,16 +5,35 @@ title: "TCK-010: Onboarding Three New Hires"
 # TCK-010: Onboarding Three New Hires
 
 !!! practice "Practice scenario"
-    This is a simulated ticket written to show troubleshooting reasoning. Names, systems and data are fictional.
+    Simulated case for training and portfolio purposes. Names, systems and data are fictional.
 
-| Field | Value |
-|---|---|
-| **Type** | Service request |
-| **Category** | Onboarding & Offboarding > New hire |
-| **Priority** | Service request — fulfillment target 5 business days (request arrived 7 business days before start) |
-| **Status** | <span class="badge badge--request">Service request &rarr; Fulfilled</span> |
-| **Channel** | HR request form |
-| **Related KB** | [KB-020 New Employee Onboarding](../kb/kb-020-employee-onboarding.md), [Onboarding checklist](../processes/onboarding-offboarding.md) |
+<div class="ticket-meta" markdown>
+
+Type
+:   Service request
+
+Category
+:   Onboarding & Offboarding > New hire
+
+Priority
+:   &mdash; (service request)
+
+Target
+:   5 business days (request arrived 7 business days before the start date)
+
+Status
+:   <span class="badge badge--request">Service request &rarr; Fulfilled</span>
+
+Handled by
+:   Service Desk provisioning (L2 procedure)
+
+Channel
+:   HR request form
+
+Related KB
+:   [KB-020 New Employee Onboarding](../kb/kb-020-employee-onboarding.md), [Onboarding checklist](../processes/onboarding-offboarding.md)
+
+</div>
 
 ## Resolution timeline
 
@@ -68,6 +87,5 @@ title: "TCK-010: Onboarding Three New Hires"
 - All three new hires were working by 09:30 on day one.
 - The `-Simulate` run caught the duplicate name and the missing title **before** anything was created.
 
-## Skills demonstrated
-
-Service request handling with approvals, least-privilege role templates, validating bulk changes with simulation and `-WhatIf`, secure credential handover, checklist discipline.
+??? abstract "Portfolio note: skills demonstrated"
+    Service request handling with approvals, least-privilege role templates, validating bulk changes with simulation and `-WhatIf`, secure credential handover, checklist discipline.

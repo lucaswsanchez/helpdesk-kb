@@ -5,16 +5,35 @@ title: "TCK-003: VPN Fails From a Hotel"
 # TCK-003: VPN Fails From a Hotel
 
 !!! practice "Practice scenario"
-    This is a simulated ticket written to show troubleshooting reasoning. Names, systems and data are fictional.
+    Simulated case for training and portfolio purposes. Names, systems and data are fictional.
 
-| Field | Value |
-|---|---|
-| **Type** | Incident |
-| **Category** | Network > VPN |
-| **Priority** | <span class="badge badge--p3">P3</span> — Impact: Low (one user) · Urgency: High (client presentation in 2 hours needs files from the share) |
-| **Status** | <span class="badge badge--resolved">Resolved</span> |
-| **Channel** | Phone (user travelling) |
-| **Related KB** | [KB-009 VPN Does Not Connect](../kb/kb-009-vpn-not-connecting.md), [KB-010 Wi-Fi Connected but No Internet](../kb/kb-010-wifi-dns-troubleshooting.md) |
+<div class="ticket-meta" markdown>
+
+Type
+:   Incident
+
+Category
+:   Network > VPN
+
+Priority
+:   <span class="badge badge--p3">P3</span>
+
+Impact / urgency
+:   Impact: Low (one user) · Urgency: High (client presentation in 2 hours needs files from the share)
+
+Status
+:   <span class="badge badge--resolved">Resolved</span>
+
+Handled by
+:   L1 Service Desk
+
+Channel
+:   Phone (user travelling)
+
+Related KB
+:   [KB-009 VPN Does Not Connect](../kb/kb-009-vpn-not-connecting.md), [KB-010 Wi-Fi Connected but No Internet](../kb/kb-010-wifi-dns-troubleshooting.md)
+
+</div>
 
 ## Resolution timeline
 
@@ -55,6 +74,5 @@ Followed the bottom-up approach: **internet first, then VPN**.
 - **Root cause:** captive portal not completed.
 - **Prevention:** added a "Travelling? Read this first" tip to the VPN KB article (step 1 already covers captive portals). Proposed adding the most-used sales folders to OneDrive/SharePoint to reduce VPN dependency.
 
-## Skills demonstrated
-
-Layered troubleshooting (don't troubleshoot the VPN before the internet), urgency-aware workaround, empathetic communication under time pressure.
+??? abstract "Portfolio note: skills demonstrated"
+    Layered troubleshooting (don't troubleshoot the VPN before the internet), urgency-aware workaround, empathetic communication under time pressure.

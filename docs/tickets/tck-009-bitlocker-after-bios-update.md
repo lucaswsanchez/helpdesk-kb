@@ -5,16 +5,35 @@ title: "TCK-009: BitLocker Recovery Screen After a BIOS Update"
 # TCK-009: BitLocker Recovery Screen After a BIOS Update
 
 !!! practice "Practice scenario"
-    This is a simulated ticket written to show troubleshooting reasoning. Names, systems and data are fictional.
+    Simulated case for training and portfolio purposes. Names, systems and data are fictional.
 
-| Field | Value |
-|---|---|
-| **Type** | Incident |
-| **Category** | Hardware & Printing > BitLocker |
-| **Priority** | <span class="badge badge--p3">P3</span> — Impact: Low (one user) · Urgency: High (cannot use the laptop) |
-| **Status** | <span class="badge badge--resolved">Resolved</span> |
-| **Channel** | Phone (user's personal mobile) |
-| **Related KB** | [KB-014 BitLocker Recovery Key Requested at Startup](../kb/kb-014-bitlocker-recovery.md) |
+<div class="ticket-meta" markdown>
+
+Type
+:   Incident
+
+Category
+:   Hardware & Printing > BitLocker
+
+Priority
+:   <span class="badge badge--p3">P3</span>
+
+Impact / urgency
+:   Impact: Low (one user) · Urgency: High (cannot use the laptop)
+
+Status
+:   <span class="badge badge--resolved">Resolved</span>
+
+Handled by
+:   L1 Service Desk (L2 Endpoint Management informed)
+
+Channel
+:   Phone (user's personal mobile)
+
+Related KB
+:   [KB-014 BitLocker Recovery Key Requested at Startup](../kb/kb-014-bitlocker-recovery.md)
+
+</div>
 
 ## Resolution timeline
 
@@ -60,6 +79,5 @@ Informed **L2 Endpoint Management** that the firmware update was triggering reco
 - **Root cause:** firmware update without BitLocker suspension.
 - **Prevention:** problem record to update the firmware deployment to suspend BitLocker for one restart (`Suspend-BitLocker -RebootCount 1`).
 
-## Skills demonstrated
-
-Security-first identity verification, secure handling of recovery keys, key rotation, spotting a trend across tickets and feeding problem management.
+??? abstract "Portfolio note: skills demonstrated"
+    Security-first identity verification, secure handling of recovery keys, key rotation, spotting a trend across tickets and feeding problem management.

@@ -5,16 +5,35 @@ title: "TCK-008: No Audio in Teams After Docking"
 # TCK-008: No Audio in Teams After Docking
 
 !!! practice "Practice scenario"
-    This is a simulated ticket written to show troubleshooting reasoning. Names, systems and data are fictional.
+    Simulated case for training and portfolio purposes. Names, systems and data are fictional.
 
-| Field | Value |
-|---|---|
-| **Type** | Incident |
-| **Category** | Microsoft 365 > Teams |
-| **Priority** | <span class="badge badge--p3">P3</span> — Impact: Low (one user) · Urgency: High (customer call in 10 minutes) |
-| **Status** | <span class="badge badge--resolved">Resolved</span> |
-| **Channel** | Teams chat |
-| **Related KB** | [KB-006 Microsoft Teams Has No Audio or Camera](../kb/kb-006-teams-audio-camera.md), [KB-015 External Monitor or Docking Station](../kb/kb-015-monitor-docking-station.md) |
+<div class="ticket-meta" markdown>
+
+Type
+:   Incident
+
+Category
+:   Microsoft 365 > Teams
+
+Priority
+:   <span class="badge badge--p3">P3</span>
+
+Impact / urgency
+:   Impact: Low (one user) · Urgency: High (customer call in 10 minutes)
+
+Status
+:   <span class="badge badge--resolved">Resolved</span>
+
+Handled by
+:   L1 Service Desk
+
+Channel
+:   Teams chat
+
+Related KB
+:   [KB-006 Microsoft Teams Has No Audio or Camera](../kb/kb-006-teams-audio-camera.md), [KB-015 External Monitor or Docking Station](../kb/kb-015-monitor-docking-station.md)
+
+</div>
 
 ## Resolution timeline
 
@@ -53,6 +72,5 @@ title: "TCK-008: No Audio in Teams After Docking"
 - **Root cause:** automatic default device change after docking.
 - **Prevention:** added a quick "hot desk" note to KB-006 step 2 (pick the right device). If it keeps happening at that desk, L2 can disable the monitor audio endpoint in the hot-desk image.
 
-## Skills demonstrated
-
-Urgency handling with a fallback, "what changed?" questioning, device selection in Teams/Windows, concise friendly communication.
+??? abstract "Portfolio note: skills demonstrated"
+    Urgency handling with a fallback, "what changed?" questioning, device selection in Teams/Windows, concise friendly communication.
